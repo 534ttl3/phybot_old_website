@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- HTML 4.x -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <!-- HTML5 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="contents/LaTeX/_prism_syntax_highliter/themes/prism.css" rel="stylesheet" />
+</head>
+
+<style>
+body .syntaxhighlighter .line {
+        white-space: pre-wrap !important; /* make code wrap */
+}
+</style>
+
+<body>
+
+<div style="margin:10px;">
+
+<h1> LaTeX Basics </h1>
+
+<p> This is a heavily commented LaTeX (.tex) source file which hopefully gives you some insight into the basic structure, components and commands of the LaTeX markup language. <br/>
+If you have LaTeX and all its necessary extensions and packages installed on your computer, then go ahead and copy and paste this code into your own .tex file and try to compile it.</p>
+
+
+
+<h4> Open up the compiled PDF side-by-side: <a href="contents/LaTeX/_res/latex_learning_document.pdf" target="_blank" /> Download/Open in new tab </a> </h4>
+
+
+<h4> To scroll vertically, hold SHIFT and scroll with your mousewheel </h4>
+
+
+</div>
+
+<pre class="line-numbers language-latex" data-line="4-6" style="font-size:120%;">
+<code>
+% This is the source of the file "latex_learning_document.tex"
+
+% In order to get a sense of where in the document you find yourself, open up the pdf, which you can download from the page. 
+
+% This is a document that should help you to understand the basics of latex
+
+% A page where you can quickly look up Math-related commands is https://de.wikipedia.org/wiki/Hilfe:TeX
+
+% now, lets cut to the chase
+
+% this is a comment, which is simply a single line in the latex source file that is being ignored by the compiler. 
+% It obviously begins with the % sign. It's pretty useful to annotate stuff like TODOs within the source code, and then not have to worry about having it being printed when compiling (to pdf, postscript, ...) .
+
+% latex commands always begin with the backslash \ . Sometimes they have options that you can pass  them within the [] square brackets, delimit these parameters with a comma.
+
+% \documentclass [some_other_stuff]{type_of_document} specifies what kind of preset template you want to use. Of course you can always just give it the parameter "article" and then manually override whatever you want to change, like we did here. 
+%Some nice preset document types are memoir, book (where it automatically does some book things for you), and many others ...
+
+% \usepackage[some_options]{the_name_of_the_package} is being used whenever you want to get some part of functionality that is not part of the relatively sparse "core" of latex. 
+%For instance, german Umlaute are not supported right away, so you want to specify \usepackage{german} and \usepackage[utf8]{inputenc} to be able to render all the symbols that the utf-8 code contains.
+% use \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} whenever you are not contented with the width of the margins of your document or various other related stuff. 
+% you can set the specific values as seen in the parameters in cm and other units that you have to look up
+
+\documentclass[article,12pt]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{gensymb}
+% I dont remember what the above three packages do, but they are there for a reason
+\usepackage{german}
+% enable some language-related functionality
+\usepackage[section]{placeins}
+% \usepackage[section]{placeins} should prevent your figures (tables, graphics and stuff) to float beyond the borders of the next section, which may be important to you
+
+\usepackage{mathtools,amsmath,amssymb,latexsym,amsfonts}
+% mathtools,amsmath,amssymb,latexsym,amsfonts are all math-symbol related, so just install them if you want to use the full power of math-latex
+\usepackage{graphicx}
+\graphicspath{ {.} }
+% graphicx is a package that enables you to embed various images, or even pdfs as a graphic inside your latex document using the figure environment
+% \graphicspath specifies the relative location of your images to whatever folder your .tex file is in. A simple . means, take the pictures from the same directory that your .tex file lies in. You can go higher up the folder hierarchy by using ../somefolderparalleltomytexfolder or just type the name of the subfolder like subfolder/subsubfolder to go down the hierarchy 
+
+% you include your graphic like this:
+%\begin{figure}[ht!]
+%  \includegraphics[scale=1.0]{relativepathtofile.png}}
+%\centering
+%\end{figure}
+% where the h in the argument tells latex to display the graphic right here. The additional t in the argument tells latex to decide for itself if its better to position it right here (h) or at the top of a page, you should google the \includegraphics command to find out more (you will need to do that to not get frustrated with your graphics floating all over the place) 
+
+\usepackage{float}
+% I dont know exactly what \usepackage{float} this is useful for
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% fancyhdr in combination with \pagestyle{fancy}: set a custom header and/or footer across your document  
+
+\lhead{on the left side in the header}
+\rhead{on the right side in the header}
+\cfoot{\thepage}
+% use these commands to set your custom fancyhdr header and footer
+% \thepage just prints out the specific page of your document onto the right page  
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}} 
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\vv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\vvvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+% use the \newcommand{\mynewcommand}[num_of_parameters]{what to do in \LaTeX code} command to 
+% define yourelf a few commands 
+% I like to write the symbols for the sets R, C, N, Z not as mathbb specific code, so thats a little shortcut
+% also i defined 2-4 dimensional vertical vectors (which are actually m x 1 matrices) 
+ 
+\newcommand{\newSection}[1]	 { \clearpage \FloatBarrier \section{#1} }
+\newcommand{\newSubSection}[1] { \FloatBarrier  \subsection{#1} }
+\newcommand{\newSubSubSection}[1] {  \FloatBarrier \subsubsection{#1} }
+% simply redefine the standard \section{...} commands to be \newSection (\clearpage makes it begin on new page)
+% \FloatBarrier prevents figures(images, tables) to float beyond the section where they were declared. This only works if you use \usepackage[section]{placeins}. 
+%For some reason, it sometimes floats anyway, but when setting \FloatBarrier directly where it belongs in the document weirdly corrects that.
+% It's pretty useful though, so you really want to install it to not get frustrated with your graphics floating around in too unpredictable ways.
+
+\newcommand{\mal}{\cdot} % \cdot is the dot product symbol (Malpunkt in german)
+
+
+\newcommand{\randNotiz}[2]{\[ \left.\parbox{\randlength}{#2}\parbox{3mm}{~}\right\}
+\parbox{3mm}{~}\parbox{2.0cm}{#1}\]}
+% i dont know if that command actually works with my current configuration but it should 
+% encapsulate a region in the page with a sideways bracket and write a little annotation 
+% onto the margin of the page
+
+\setlength{\parindent}{0pt}
+% dont auto-indent at a new line
+
+\usepackage{color}   % May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to not be automatically colored blue
+}
+
+\usepackage{pdfpages}
+% be able to use the \includepdf[...]{thispdf.pdf} command, which includes pdf, I use that to 
+% include entire pages or documents seamlessly into the latex-pdf.
+% if you want to just use pdf as a graphic though, (and I show that below) you want to use \includegraphics[...]{bla.pdf}
+
+
+
+% this says OK, now you want to actually begin with the content of the document, everything above here was just setting up stuff
+
+\begin{document}
+% in latex you will often encounter so called "environments", which are basically just code blocks sorrounded by \begin{environment} ...... \end{environment} commands that serve a specific purpose, for example math equations, but that follows later
+
+%\includepdf[pages=-, offset=0 -0]{Deckblatt-Versuchsprotokoll.pdf}
+% I have this commented out because I dont want to include that pdf 
+
+  \pagenumbering{Roman}
+% from now on, use roman page numbering, that you probably want to change to \pagenumbering{arabic} when youre done with the preface, table of contents, etc.
+  \setcounter{page}{1}
+% set the current page to page 1
+  \title{Praktikum - Elastizität}
+  \author{Max Mustermann}
+  \date{\today \quad Wintersemester 2015/2016}
+  \maketitle
+% make a big heading for your document. Of course you can just omit that stuff if you dont want it.
+% the \quad command behaves basically like a lab or a few blank spaces to seperate stuff from each other  
+\bigskip
+% \bigskip skips like 2-3 lines, i think, and then you can continue writing after that
+\ \\  % these \ \\ you need to set whenever you want an empty line. You dont need the \ in front if theres already text in front of it.
+\ \\
+\ \\
+  \tableofcontents
+% this prints you a nice table of contents, which, when you work with the concept of sections, will come in pretty darn handy.
+
+  \newpage
+% \newpage gives you a new page, that should be obvious.
+% there is also the \clearpage command which I'm not quite sure what the difference is between both of them 
+  \pagenumbering{arabic}
+% now there you go, now you want to really begin writing your document, so you usually would want to set an arabic page numbering  
+\setcounter{page}{1}
+% make sure you set the counter back to 1, or it will count on from the roman numbered pages
+
+\newSection{Elastizitätsmodul (statischer Fall)}
+% so this is a new section, which is basically just a redifinition of the \section command. 
+% so if you haven't done \newcommand[...]{.... \section} like shown above, the compilation will give you errors. 
+% you can use it or just use \section{heading}  \subsection{heading}  \subsubsection{heading} instead
+
+\newSubSection{Messuhr}
+In diesem Versuch wird das E-Modul verschiedener Stoffe durch eine eine statische Messmethode gemessen. Dazu wird jeweils ein langer, dünner Stab des jeweiligen Stoffes an beiden Enden aufgelagert und durch verschiedene in der Mitte angehängte Gewichte belastet. Es wird die zusätzliche Durchbiegung $ s $ in der Mitte des Stabes mit Hilfe einer Messuhr gemessen. Die zusätzliche Gewichtskraft, mit der die Messuhr auf die Mitte des Stabes drückt beträgt $ 3.6 \text{g/mm} $.
+% the new thing here is the $ some math expression $ stuff. 
+% if you want to quickly do a math expression inline, that is the way to go. 
+% \text{not math} is used for expressing regular text in a math environment 
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.5]{skizzemessuhr.png}
+  \caption{Versuchsaufbau Aufgabe 1.1 (Modifizierte Skizze aus Versuchsmappe)}
+  \centering
+\end{figure}
+% this is how you include a graphic (like png, jpg, bmp, or even pdf) but that was already mentioned above (you need to set the path where latex should look for the graphic you specified first). Look at the beginnig of this document, you will find it there
+
+Die Durchbiegung $ s $ steht mit der Länge des Stabes zwischen den Auflagerungspunkten $ L $ , der Normalkraft $ F $, dem E-Modul $ E $ , der Dicke $ d $ und der Breite $ b $ in folgender Beziehung:
+\begin{equation*}
+  \begin{aligned}
+    s = \frac{ L^3 F }{ 4 Ebd^3 } 
+  \end{aligned}
+\end{equation*}
+% this is the other kind of math environment, that's basically a big equation that follows some paragraph of text and some paragraph of text comes after it.
+% not necessarilly you need all of these expressions to do that, but I like doing it that way, because it's consistent also for things like mathjax (math on the web).
+% if you like those equations to be numbered chronologically, just omit the * in the "equation" environment
+
+
+Diese Formel wird dem Aufgabenblatt entnommen. Die explizite Herleitung befindet sich in dem Lehrbuch Demtröder (S.178). \\
+% the \\ after some text in a line just does a simple line break. Keep in mind that having a linebreak in your source file however, doesn't affect how the output will look like, but you will see that when you compile youre document
+Da, wie oben erwähnt, die Messuhr ebenfalls drückt muss der Ausdruck dementsprechend modifiziert werden:
+\begin{equation*} 
+  \begin{aligned}
+   s &= \frac{ L^3 (m- (3.6 \frac{ \text{g}  }{ \text{mm}  } \cdot s )) \cdot g }{ 4 Ebd^3 } \\ 
+&= \frac{ L^3 g }{ 4 E b d^3 } \left( m - 3.6 \frac{ \text{g}  }{ \text{mm}  } \cdot s \right) 
+  \end{aligned}
+\end{equation*}
+% now there are & symbols within the math environment there can also be && &&& and &&&& ...
+% these statements basically define offsets where you want the math to align vertically. In order to do that though, you must always do a manual linebreak \\ after one "row" is finished. 
+% in the above example, we align the two expressions at the = symbol to make it look nice
+% equations are automatically being numbered, to prevent that put a * behind equation in the begin and end statement of the environment as shown above.
+% there is also a \tag command, which sets a custom number
+
+Daraus folgt für das E-Modul:
+\begin{equation*}
+  \begin{aligned} 
+    E = \underbrace{ \frac{ L^3 g }{ 4 b d^3 }}_{=const}  \frac{ (m- (3.6 \frac{ \text{g}  }{ \text{mm}  } \cdot s ) ) }{ s }  
+  \end{aligned}
+\end{equation*}
+\ \\
+Die Konstanten sind $ L=41cm $ , $ g=9.81 \frac{ m }{ s^2 }  $ , $ b=0.5cm $ , $ d=2.5cm $.
+
+
+\begin{figure}[!h]
+  \makebox[\textwidth][c]{\includegraphics[]{Messdaten_11/11_Auslenkung_der_Staebe_Tabelle.pdf}}%
+  \centering
+\end{figure}
+
+% here we specify a figure (a pdf graphic) to be embedded "here" (h) and only here (!) 
+% if you dont put the ! , then latex tries to figure out itself where it should put your figure in order to make it look nice. That's often what you want, but not always. Google these parameters.
+% \makebox[]{} creates kind of a box around the graphic and makes it so that it is always nice and centered (horizontally). 
+% You can even limit the size of the graphic so it automatically scales down and you dont have to worry so much about how big your graphic should be in order to look good within the document 
+% that is maybe also worth a google, or maybe not... I haven't googled that yet
+
+%\centering just tells latex to center your graphic 
+
+\begin{figure}[!h]
+  \makebox[\textwidth][c]{\includegraphics[scale=0.95]{Messdaten_11/11_E_Modul_und_Fehler.pdf}}%
+  \centering
+\end{figure}
+
+\FloatBarrier
+% as said earlier, \FloatBarrier prevents your graphics from floating around and beyond where you have set the boundaries using \FloatBarrier
+Damit berechnen sich die E-Moduln zu:
+\begin{itemize}
+\item[-] $ E_{PVC} = (7.69   \pm 0.02  ) \cdot 10^{7}  N/m^2 $ 
+  \item[-] $ E_{Aluminium} = (3.47   \pm 0.03  )  \cdot 10^{8} N/m^2 $ 
+  \item[-] $ E_{Messing} = (4.68   \pm 0.03   ) \cdot 10^{8}  N/m^2 $
+  \item[-] $ E_{Edelstahl} = (8.41   \pm 0.3  )  \cdot 10^{8}  N/m^2 $
+  \item[-] $ E_{Kupfer} = (5.33    \pm 0.04  ) \cdot 10^{8} N/m^2 $
+\end{itemize}
+
+% the itemize environment is useful for lists of things, bullet points and structured math tasks
+% use the \item[-] \item[a)] or \item[1] to set whatever type of list style you want to have.
+% the default one is \item , which produces a fat dot as a bullet point
+\ \\
+\textbf{Tabelle der Literaturwerte der E-Moduln } \\
+% this just makes the text bold
+% \textit{My italic text} displays the text, well, you guessed it, in italics
+\begin{equation*}
+  \begin{aligned}
+    & \text{PVC}  && 0.003  \cdot 10^{9} N/m^2 \quad - \quad 0.01   \cdot 10^{9} N/m^2 \\
+    & \text{Aluminium, rein, weich}  && 72  \cdot 10^{9} N/m^2\\
+    & \alpha \text{-Messing, kaltgezogen}  \quad \quad  && 100  \cdot 10^{9} N/m^2 \\  	
+    & \text{V2A-Stahl} && 195  \cdot 10^{9} N/m^2 \\
+    & \text{Kupfer, kaltgezogen} && 126 \cdot 10^{9} N/m^2
+  \end{aligned}
+\end{equation*}
+% this is, well, I have to admit, a very ugly table, that I did using the vertical alignment tool & && &&&, ... of math environment
+% actually there are pretty good tabular environments coming with latex, but before writing this article, I just didn't get around learning them
+\ \\
+Diese Werte stammen aus dem Lehrbuch \textit{Gerthsen Physik} (24. überarbeitete Auflage) und der Wert für PVC stammt von der Webseite des Instituts für Materialwissenschaft der Christian-Albrechts-Universität zu Kiel (\url{http://www.tf.uni-kiel.de/matwis/amat/mw1_ge/kap_7/illustr/t7_1_2.html}) .
+% the \url{http://myyyyurl.com/index.php} command detects a url, makes it clickable (in pdf) and highlights it in the document 
+
+\begin{figure}[!h]
+  \makebox[\textwidth][c]{\includegraphics[scale=0.9]{Messdaten_11/11_Auslenkung_der_Staebe_Diagramm.pdf}}%
+  \centering
+\end{figure}
+
+
+\ \\
+\FloatBarrier
+\textbf{Potentielle Systematische Fehler}
+
+Die Messuhr muss sich so weit wie möglich in der Mitte des Stabes befinden, um die maximale Durchbiegung zu messen. \\
+Falls die Messuhr nicht richtig geeicht sein sollte, würde dies ebenfalls einen Fehler darstellen, der jeden Messwert in die gleiche Richtung beeinflusst. \\
+Die zusätzlich angehängten Gewichte müssen möglichst so aufgehängt werden, dass die Normalkraft über die Breite des Stabes gleichmäßig verteilt wird, sodass zu große zusätzliche Scherungen vermieden werden. 
+\ \\
+\ \\
+Die erzielten Ergebnisse für die E-Moduln weichen sehr stark vom Literaturwert ab. Dies ist auf einen Fehler systematischer Art zurückzuführen. \\
+\bigskip
+\newSubSection{Laser}
+Bei diesem zweiten Versuch zur Messung des Elastizitätsmoduls wird der Versuchsaufbau aus Aufgabe 1.1 modifiziert. Statt der Durchbiegung $ s $ des Balkens wird hier der Neigungswinkel $ \alpha $ des Stabes an den aufgelagerten Enden gemessen. Dazu wird auf jeder Seite direkt über den Auflageflächen ein zur Stabmitte hin gerichteter Spiegel angebracht. Diese sind leicht geneigt, sodass der punktförmige Strahl eines Lasers über diese Spiegel auf einen entfernten Schirm geführt werden kann (s. Skizze). Der Winkel $ \alpha $, um den sich die Stabenden bei Belastung neigen, kann dann aus der vertikalen Auslenkung des Strahls auf dem Schirm berechnet werden. Dazu muss vorher natürlich die Position des Lasers auf dem Schirm ohne zusätzliche Belastung des Stabes aufgenommen werden.
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{skizzelaser.png}
+  \caption{Versuchsaufbau Aufgabe 1.2 (Skizze aus Versuchsmappe)}
+  % Oh, I almost forgot, you can also set a caption for your figure
+  % there is also the opportunity to automatically number the figure and cross-reference it from an arbitrary location within the document (and make it even clickable), 
+  % but I won't show that here. If you need it, google it
+  \centering
+\end{figure} 
+\ \\
+\ \\
+Die Neigung der Stabenden $ \alpha $, der Abstand der Auflagerungen des Stabes $ L $, die Normalkraft $ F $ der E-Modul $ E $ und die Breite $ b $ und Dicke $ d $ des Stabes hängen folgendermaßen voneinander ab:
+\begin{equation*}
+  \begin{aligned}
+    \alpha = \frac{ 3 L^2 F }{ 4Ebd^3 } 
+  \end{aligned}
+\end{equation*}
+Diese Formel wird der Vorbereitungsmappe entnommen. \\
+Die vertikale Auslenkung $ \Delta s $ des Laserpunktes auf dem Schirm wird duch folgende Formel beschrieben:
+\begin{equation*}
+  \begin{aligned}
+    \Delta s = 2 \alpha \cdot L + 4 \alpha (L + l)
+  \end{aligned}
+\end{equation*}
+
+Dabei ist $ l $ der Abstand vom schirmnahen Spiegel (Spiegel 1) zum Schirm. Diese Formel kann folgendermaßen nachvollzogen werden: Der Laser wirft einen Strahl auf Spiegel 1, welcher um den Winkel $ \alpha $ zusätzlich gekippt ist. Der Strahl wird also um $ 2 \alpha $ gekippt und auf Spiegel 2 geworfen. Dort wird er wieder um $ 2 \alpha $ gekippt und dann auf den Schirm geworfen. Die Position des Laserpunktes auf dem Schirm ändert sich also um $ \tan(4 \alpha) (L+l) $. Gleichermaßen wird schon von der Reflexion an Spiegel 1 die Auslenkung des Punktes auf dem Schirm um $ \tan (2 \alpha) L $ verschoben. Für kleine Winkel $ \alpha $ gilt die Näherung $ \tan \alpha = \alpha $. Durch die Addition der Verschiebungen ist die Gesamtverschiebung $ \Delta s  $, die oben angegeben ist. \\
+\ \\
+Das E-Modul wird nun mit Hilfe der folgenden Gleichungen berechnet:
+\begin{equation*}
+  \begin{aligned}
+    &\Delta s = 2 \cdot \alpha \cdot L + 4 \cdot \alpha \cdot (L+l) \\
+    &\implies \alpha = \frac{ (3 \cdot L^2 \cdot F) }{ (4 \cdot E \cdot b \cdot d^3) } \\ 
+    &\implies E = \underbrace{\frac{ (3  L^2 (2L + 4(L+l)) g) }{ (4 b d^3) }}_{=const}  \cdot \frac{ m }{ \Delta s  }   
+\end{aligned}
+\end{equation*}
+
+Die Konstanten sind $ L=41cm $ , $ g=9.81 \frac{ m }{ s^2 }  $ , $ b=0.5cm $ , $ d=2.5cm $ und $ l=141cm $ .
+\\
+\begin{figure}[!h]
+  \makebox[\textwidth][c]{\includegraphics[]{Messdaten_12/12_Auslenkung_des_Laserpunktes_Tabelle.pdf}}
+  \centering
+\end{figure}
+
+
+
+\begin{figure}[!h]
+  \makebox[\textwidth][c]{\includegraphics[scale=0.9]{Messdaten_12/12_Auslenkung_des_Laserpunktes_Diagramm.pdf}}
+  \centering
+\end{figure}
+
+\begin{figure}[!h]
+  \makebox[\textwidth][c]{\includegraphics[scale=0.95]{Messdaten_12/12_E_Modul_und_Fehler.pdf}}%
+  \centering
+\end{figure}
+
+
+\ \\
+\FloatBarrier
+Damit berechnen sich die E-Moduln zu:
+\begin{itemize}
+\item[-] $ E_{PVC} = (8.46    \pm 0.08 ) \cdot 10^{8} N/m^2 $ 
+  \item[-] $ E_{Aluminium} = (4.71  \pm 0.2)  \cdot 10^{9} N/m^2 $ 
+  \item[-] $ E_{Messing} = (8.55    \pm 1.8 ) \cdot 10^{9} N/m^2 $
+  \item[-] $ E_{Edelstahl} = (1.18  \pm 0.08  )  \cdot 10^{10}  N/m^2 $
+  \item[-] $ E_{Kupfer} = (7.60    \pm 0.4 ) \cdot 10^{9}N/m^2 $
+\end{itemize}
+
+\ \\
+\textbf{Potentielle Systematische Fehler} \\
+Wird nach Ausrichtung des Lasers, z.B. beim Wechseln der Stäbe einer der Spiegel verschoben und wird dies nicht korrigiert, kann dies zu verhältnismäßig kleinen systematischen Fehlern führen. Dies kann aber durch die Markierung der Laserposition im unbelasteten Zustand leicht vermieden werden. \\
+\ \\
+In den beiden vorangehenden Teilversuchen wird eine klare lineare Korrellation zwischen den angehängten Massen und den Auslenkungen der Stäbe bzw. des Laserpunktes gemessen. \\
+Die Ergebnisse der Werte der E-Moduln aus diesem Versuchsteil kommen schon näher an die Literaturwerte heran, liegen aber immer noch eine Größenordung darunter. Es muss hier, wie beim ersten Versuch, ein systematischer Fehler vorliegen. In Abschnitt 1.1 befindet sich eine Tabelle mit Literaturwerten zum Vergleich. \\ 
+Die dynamische Messmethode im nächsten Versuch liefert deutlich bessere Ergebnisse als diese beiden statischen Messmethoden. Möglicherweise liegt es aber nicht an der Genaugikeit der Methode, sondern an systematischen Fehlern, die in den Versuchen 1.1 und 1.2 mit eingegangen sind.
+
+\newSection{Elastizitätsmodul (dynamischer Fall)}
+In diesem Versuchsteil wird der E-Modul verschiedener Stoffe mittels einer dynamischen Messmethode bestimmt. Dazu werden die Zeitintervalle gemessen, die eine Longitudinalwelle benötigt, um von einem Ende eines Stabes zum anderen zu laufen und wieder zurückzukehren. Als Erreger fungiert dabei eine Pendelkugel, die axial an ein Stabende stößt und somit eine sich im Stab fortpflanzende Verdichtungswelle auslöst. Am erregerfernen Ende des Stabes befindet sich ein Messinstrument, welches dazu in der Lage ist, mit Hilfe eines Piezokristalls die Schallsignale aus dem Stab in elektrische Spannungsimpulse umzuwandeln und diese dann mit einem Oszilloskop aufzuzeichnen. 
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.6]{schallstab.png}
+  \caption{Versuchsaufbau Aufgabe 2 }
+  \centering
+\end{figure}
+
+Bevor die Messung für einen bestimmten Stoff ausgeführt wird, empfiehlt es sich vorher die Anschlagsstärke herauszufinden, die vernünftige Messdaten produziert. Je klarer der Hauptschwingungsmodus im Oszillogramm zu erkennen ist, desto höher ist die Reproduzierbarkeit dieser Daten. Bei PVC wird die Welle so stark gedämpft, dass es hier schwierig ist, vernünftige Daten aufzunehmen, außerdem treten zusätzlich noch andersartige Anregungsmoden auf. \\
+\\
+Um den E-Modul zu bestimmen, muss zunächst eine theoretische Formel bestimmt werden, die die Beziehung zwischen den gemessenen Größen und dem E-Modul beschreibt. \\
+\\
+Betrachtet wird ein Stabelement mit der  Länge $ \Delta x $ und der Masse $ \Delta m = \rho dV = \rho A \Delta x  $. Der E-Modul ist 
+\begin{equation*}
+  \begin{aligned}
+    E = \frac{ F/A }{ \Delta L / L  } \quad \implies \quad F=E \cdot A \cdot \frac{ \Delta L  }{ L }
+  \end{aligned}
+\end{equation*}
+
+Beim Übergang zu infinitesimalen Größen über $ s $ so ergibt sich mit der Auslenkung $ s $ des Stabelements:
+\begin{equation*}
+  \begin{aligned}
+    F = EA \frac{ \partial^2s }{ \partial x^2 } \cdot \Delta x 
+  \end{aligned}
+\end{equation*}
+
+Nach dem 2. Newtonschen Axiom gilt:
+\begin{equation*}
+  \begin{aligned}
+    F = m a = \Delta m \frac{ \partial^2 s}{ \partial t^2 } = A \rho \cdot  \Delta x \cdot  \frac{ \partial^2s}{ \partial t^2 } 
+  \end{aligned}
+\end{equation*}
+Dies ist die Normalkraft, die auf die Fläche $ A $ wirkt und das Stabelement beschleunigt.
+Durch Gleichsetzung der beiden Ausdrücke für $ F $ folgt diese Wellengleichung:
+\begin{equation*}
+  \begin{aligned}
+    &\frac{ \partial^2s }{ \partial t^2 } = \frac{ E }{ \rho } \frac{ \partial^2 s }{ \partial x^2 } 
+    & \implies  \frac{ \partial^2x }{ \partial t^2 } = v^2 = \frac{ E }{ \rho } 
+  \end{aligned}
+\end{equation*}
+Damit gilt für den E-Modul
+\begin{equation*}
+  \begin{aligned}
+    E = \rho v^2
+  \end{aligned}
+\end{equation*}
+
+Folgende Formeln werden für die Berechnungen benutzt:
+\begin{equation*}
+  \begin{aligned}
+    &E = v^2 \cdot \rho \quad , \quad v = s/t = (2L)/T \\
+    &\implies E= \frac{ 1 }{ T^2 } \cdot s^2 \cdot \rho 
+  \end{aligned}
+\end{equation*}
+\ \\
+Für die Dichteberechnung gilt die Formel $ \rho = \frac{ m }{ V }  $.
+\ \\
+Die Konstanten sind $ L=146.8cm $ , $ d=1cm $ .
+\ \\
+Der Fehler auf den Periodendauern fließt in die Berechnung des Fehlers des E-Mouls mit ein. Der Fehler auf die Werte von $ E $ wird mit einer Gausschen Fehlerfortpflanzung für die Größe $ T $ in der Formel für $ E $ berechnet, auf deren explizite Durchführung hier nicht näher eingegangen wird.
+\begin{figure}[!h]
+  \makebox[\textwidth][c]{\includegraphics[scale=1.0]{Messdaten_2/2_DiagrammTabelleMessdaten.pdf}}%
+  \centering
+\end{figure}
+
+\begin{figure}[!h] 
+  \makebox[\textwidth][c]{\includegraphics[scale=1.0]{Messdaten_2/2_Dichten_Geschwindigkeiten_EModuln.pdf}}%
+  \centering
+\end{figure}
+\ \\
+\FloatBarrier
+Damit berechnen sich die  E-Moduln zu:
+
+\begin{itemize}
+\item[-] $ E_{PVC} = (2.78  \pm 0.1 ) \cdot  10^{9} N/m^2 $ 
+\item[-] $ E_{Aluminium} = (7.58 \pm 0.05 ) \cdot 10^{10} N/m^2 $ 
+\item[-] $ E_{Messing} = (1.04  \pm 0.001) \cdot 10^{11} N/m^2 $
+\item[-] $ E_{Edelstahl} = (1.87 \pm 0.002 ) \cdot 10^{11} N/m^2 $
+\item[-] $ E_{Kupfer} = (1.25 \pm 0.0006 ) \cdot 10^{11}  N/m^2 $
+\end{itemize}
+Die Literaturwerte sind in einer Tabelle in Abschnitt 1.1 zusammengestellt.
+\ \\ 
+\ \\
+\textbf{Potentielle systematische Fehler} \\
+Durch eine beschädigte Messapparatur können die Daten verfälscht werden. Der Piezodetektor verträgt keine harten Stöße, weshalb das Pendel nicht zu stark ausgelenkt werden darf. \\
+Wenn das Material zu stark dämpft oder störende Schwingungsmoden darin zu stark zum Ausdruck kommen, kann es passieren, dass, wenn trotzdem gemessen wird, die Peaks der Hauptschwingung mit anderen eventuell vorhandenen Peaks verwechselt werden, die von unvermeidbaren andersartigen Anregungsmoden stammen. Dies sollte jedoch vermeidbar sein, wenn mehrmals überpfüft wird, ob die aufgenommenen Messdaten reproduzierbar sind. 
+\ \\
+
+Der Stoff der sich in den vorangehenden Versuchen am meisten heraushebt ist PVC. Es besitzt einen wesentlich geringeren E-Modul als die Metalle, was an den Ergebnissen der drei vorangehenden Versuche klar zu sehen ist. \\ 
+\\
+Die Messung mit der dynamischen Messmethode scheint um einiges akkurater zu sein als die Messungen in Versuchsteil 1. Die berechneten Größen passen alle recht gut zu den Werten in der Fachliteratur. Eine Tabelle befindet sich in Abschnitt 1.1. \\
+
+
+
+\newSection{Torsionsmodul}
+
+Aufgabenstellung: Ziel des Versuchs ist es, durch den weiter unten geschilderten Versuch, das Schubmodul G der vorliegenden Probe zu bestimmen.
+Benötigte Geräte: 
+\begin{itemize}
+  \item eine zu untersuchende stabförmige Probe
+\item eine horizontale Fixierungsmöglichkeit
+\item eine Drehscheibe (mit vier Aussparungen zur besseren Anbringung der Zusatzmassen)
+\item vier Zusatzmassen (von gleicher Beschaffenheit, hier zylindrisch)
+\item eine Stoppuhr
+\item evtl. weitere Fixierungsteile
+\end{itemize}
+Aufbau/Durchführung: Zunächst wird der zu untersuchende Stab an seinem oberen Ende festgespannt und an seinem unteren Ende eine Drehscheibe angebracht. Diese Scheibe wird um einem Winkel $ < 10^{\circ} $  ausgelenkt, damit die Schwingung als harmonisch gesehen werden darf.
+Diese wird dann losgelassen und beginnt zu schwingen. Dabei werden 10 Perioden mit der Stoppuhr gemessen. Danach wird die Scheibe angehalten.
+Dann werden zwei und danach vier Zusatzmassen auf der Drehscheibe angebracht, diese ausgelenkt, und jeweils wieder die für 10 Perioden benötigte Zeit mit der Stoppuhr festgehalten.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.5]{dahtaufbau.png}
+  \caption{Versuchsaufbau Aufgabe 3}
+  \centering
+\end{figure} 
+
+
+Greift eine Kraft $ F $  tangential an einer Fläche $ A $ an, so ergibt sich für die Torsionsspannung der Ausdruck:
+\begin{equation*}
+  \begin{aligned}
+    \tau = \frac{ F }{ A } 
+  \end{aligned}
+\end{equation*}
+Für kleine Auslenkungen vom Scherwinkel $ \alpha $ gilt mit der Kleinwinkelnäherung $ \tan \alpha = \alpha $ die folgende lineare Beziehung:
+\begin{equation*}
+  \begin{aligned}
+    F = A G \alpha
+  \end{aligned}
+\end{equation*} 
+Die Materialkonstante  $ G $ wird als  Torsions- bzw. Schubmodul bezeichnet. 
+Wenn der Zylinder gedanklich in infinitesimal dünne Hohlzylinder mit der Länge $ L $ , der Dicke $ dr $ und dem Radius $ r $ unterteilt wird, dann ist das Drehmoment $ dM = r \cdot dF $ und der Schwerwinkel ergibt sich zu
+\begin{equation*}
+  \begin{aligned}
+    \tan \alpha \approx \alpha = r \cdot \frac{ \phi  }{ L } 
+  \end{aligned}
+\end{equation*}
+Der Hohlzylinder wird um den Winkel $ \phi  $ verdreht.
+Hier wird die Kleinwinkelnäherung für kleine $ \alpha $ angewendet.
+Für das Drehmoment gilt dann
+\begin{equation*}
+  \begin{aligned}
+    dM = r \cdot dF = r^2 G \frac{ \phi  }{ L } dA = 2 \pi r dr \cdot r^2 G \frac{ \phi  }{ L } = \frac{ 2 \pi r^3 \phi G }{ L } dr
+  \end{aligned}
+\end{equation*}
+Das Drehmoment folgt aus der Integration von $ 0 $ bis $ R $ :
+\begin{equation*}
+  \begin{aligned}
+    M = \int_{0}^{R }{2 \pi r^3 \frac{ G \cdot \phi  }{ L } dr }  = \frac{ \pi  }{ 2 } \frac{ G R^4  \phi }{ L }  
+  \end{aligned}
+\end{equation*}
+Die Konstanten werden zur Winkelrichtgröße $ D^* $ zusammengefasst. 
+\begin{equation*}
+  \begin{aligned}
+    M = D^* \phi \quad ,\quad D^* = \frac{ \pi G R^4 }{ 2 L } 
+  \end{aligned}
+\end{equation*}
+Es ist leicht zu sehen, dass sich daraus die typische DGL des harmonischen Oszillators ergibt:
+\begin{equation*}
+  \begin{aligned}
+    \ddot{\phi } + \frac{ D^* }{ \Theta } \phi  = 0 
+  \end{aligned}
+\end{equation*}
+Nach dem Identifizieren der Kreisfrequenz $ \omega $ kann  $ T $ bestimmt werden:
+\begin{equation*}
+  \begin{aligned}
+    \omega^2 = \frac{ D^* }{ \Theta } 
+  \end{aligned}
+\end{equation*}
+Also ergibt sich für den Torsionsmodul
+\begin{equation*}
+  \begin{aligned}
+    G = \frac{ 8 \pi L \Theta }{ R^4 \Delta (T^2) } 
+  \end{aligned}
+\end{equation*}
+
+\ \\
+\textbf{Messdaten: siehe originale Messdaten}\\
+\ \\
+Dies ist eine dynamische Messmethode für das Torsionsmodul. Allerdings lässt sich das Torsionsmodul  auch recht einfach mit einer statischen Methode bestimmen. Dazu müsste gemessen werden, welches Drehmoment benötigt wird, um den Draht um einen kleinen Winkel $ \alpha $  auszulenken. Dafür würde sich die obige Formel eignen , die den linearen Zusammenhang für kleine Winkel $ \phi  $ zwischen dem Torsionsmodul $ G $ und dem Drehmoment beschreibt.
+\ \\ 
+\ \\
+Schlussbemerkungen und Ergebnisse zum Versuch 3 befinden sich auf separaten, handgeschriebenen Blättern, die zusätzlich zu diesem Dokument mit abgegeben werden.
+
+\end{document}
+
+% That's it, I hope this gives you enough information to start of using LaTeX
+% Have a nice day, ....... ...... but practice LateX :)
+
+</code>
+</pre>
+
+
+<!-- At the bottom -->
+<script src="contents/LaTeX/_prism_syntax_highliter/themes/prism.js"></script>
+</body>
+</html>

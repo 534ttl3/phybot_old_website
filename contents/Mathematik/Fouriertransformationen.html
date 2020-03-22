@@ -1,0 +1,171 @@
+
+
+		<!-- -------------MATHJAX BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Fourier Transformation</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+<br/>
+Ein Signal $ f(t) $ wird in die "$ \omega- $Domäne" transformiert, d.h. $ f(t) $ wird nach $ f(\omega) $ überführt, $ f \in L^1 (\R^n) $ . Dazu werden folgende Formeln definiert mit $ n= $ Anzahl der Dimensionen von $ \text{ d}t $ bzw. $ \text{ d}\omega $   :
+<br/>
+<br/>
+\begin{equation*}
+\begin{aligned}
+f(\omega) = F[f(t)](\omega) = \frac{ 1 }{ (2 \pi )^{(n/2)}} \int_{\R^n}^{}{ f(t) e^{-it \cdot \omega}\text{ d}t} 
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+f(t) = F^{-1}[f(\omega)](t) = \frac{ 1 }{ (2 \pi )^{(n/2)} } \int_{\R^n}^{}{ f(\omega) e^{it \cdot \omega} \text{ d}\omega} 
+\end{aligned}
+\end{equation*}
+
+<br/>
+<br/>
+bzw. alternative Definition:
+<br/>
+<br/>
+
+\begin{aligned} 
+\bar {f}(t) = F(f)(t) = \int_{\R^n }^{}{f(x) e^{-it \cdot x} dx} 
+\end{aligned}
+
+\begin{equation*}
+\begin{aligned}
+f(x) = F^{-1}(\bar {f})(x) = \frac{ 1 }{ (2 \pi )^{n} } \int_{\R^n }^{}{\bar {f}(t) e^{i t \cdot x} dt}   
+\end{aligned}
+\end{equation*}
+
+
+
+
+<br/>
+<br/>
+Die Definition der Fouriertransformation abhängig von der Literatur verschieden. Oft findet man auch folgende Form (z.B. in der Literatur zu Signalverarbeitung und Systemtheorie):
+</br>
+</br>
+Hintransformation:
+\begin{equation*}
+\begin{aligned}
+f(\omega) = F[f(t)](\omega) = \int_{\R^n}^{}{f(t) e^{-i 2 \pi t \cdot \omega} \text{ d} t} 
+\end{aligned}
+\end{equation*}
+ 
+Rücktransformation:
+\begin{equation*}
+\begin{aligned}
+f(t) = F^{-1}[f(\omega)](t) = \int_{\R^n}^{}{ f(\omega) e^{i 2 \pi t \cdot \omega} \text{ d}\omega} 
+\end{aligned}
+\end{equation*}
+
+
+</br>
+</br>
+</br>
+</br>
+
+Einige Eigenschaften:
+</br>
+</br>
+<b>Linearität</b>: $ \quad  F[a \cdot f + b \cdot g] = a \cdot F[f] + b \cdot F[g] $ 
+</br>
+<b>Spiegelsymmetrie</b>: $ \quad F[F[f]](x) = f(-x) $ 
+</br>
+<b>Faltungstheorem</b>: Eine Faltung zweier Funktionen durch die Fourier-Transformation in ihrem Bildraum entspricht der Multiplikation reeller Zahlen. 
+</br> </br>
+$ f, g, \in L^{1}(\R^n) : \quad F[f * g] = (2 \pi )^{(n/2)} F(f) \cdot F(g) $
+</br></br>
+Umkehrung des Faltungssatzes: 
+</br></br>
+$ F(t) \cdot F[g] = (2 \pi)^{(n/2)} F[f \cdot g] $ 
+</div>
+
+</br></br>
+</br></br>
+
+
+<h1>Beispiele:</h1>
+
+<h3>Fouriertransformation einer Gauß-Funktion</h3>
+ 
+Eine Gauß-Funktion hat die From
+\[ 
+f(x) = e^{-\alpha x}
+\]
+Die Fouriertransformierte $ \bar {f}(\omega) $  wird gefunden, indem folgendes Integral berechnet wird (zur Lösung wird quadratisch ergänzt und substituiert (wobei man i loswird):
+\begin{equation*}
+  \begin{aligned}
+    \bar {f}(\omega) &= \int_{-\infty }^{+\infty}{f(x) e^{-ix\omega} dx } \\
+&= \int_{-\infty }^{+\infty}{e^{-\alpha x} e^{-ix \omega} dx} \\
+&= \int_{-\infty }^{+\infty}{e^{-\alpha x - ix \omega} dx} \\
+&= \int_{-\infty }^{+\infty}{e^{-\alpha( x + \frac{ i x \omega }{ \alpha }) } dx} \\
+&= \int_{-\infty }^{+\infty}{e^{-\alpha(x+ \frac{ ix \omega }{ \alpha } + (\frac{ i \omega }{ 2 \alpha })^2-(\frac{ i \omega }{ 2 \alpha })^2 )} dx} \\
+&= \int_{-\infty }^{+\infty}{e^{-\alpha((x+\frac{ i \omega }{ 2 \alpha })^2-(\frac{ i \omega }{ 2 \alpha })^2 )} dx} \\
+&= \int_{-\infty }^{+\infty}{e^{-\alpha(x+\frac{ i \omega }{ 2 \alpha })^2} e^{-\frac{ \omega^2 }{ 4 \alpha } } dx} \\
+&= e^{-\frac{ \omega^2 }{ 4 \alpha } } \int_{-\infty }^{+\infty}{e^{-\alpha(x+\frac{ i \omega }{ 2 \alpha })^2} dx} \\
+  \end{aligned}
+\end{equation*}
+
+\begin{equation*}
+  \begin{aligned}
+    \text{mit $ u^2 = \alpha (x+ \frac{ i \omega }{ 2 \alpha} )^2 \implies \frac{ du }{ dx } = \sqrt{\alpha} \implies dx = \frac{ 1 }{ \sqrt{\alpha}  } du  $ folgt } 
+  \end{aligned}
+\end{equation*}
+
+\begin{equation*}
+  \begin{aligned}
+    \bar {f}(\omega) &= \frac{ 1 }{ \sqrt{\alpha}  } e^{-\frac{ \omega^2 }{ 4 \alpha } }  \underbrace{\int_{-\infty }^{+\infty}{e^{-u^2}} dx}_{= \sqrt{\pi } } \\
+&= \sqrt{\frac{ \pi  }{ \alpha } } e^{- \frac{ \omega^2 }{ 4 \alpha } } 
+\end{aligned}
+\end{equation*}

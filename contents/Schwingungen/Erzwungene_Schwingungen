@@ -1,0 +1,162 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Erzwungene Schwingungen</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+In diesem Fall wird die Masse zusätzlich zur Rückstellkraft und potentieller Reibungskraft noch von einer zusätzlichen Kraft angeregt. Wenn diese Kraft dann auch noch periodisch ist, kommt es zu Resonanzphänomenen, d.h. dass die Amplitude bei bestimmten Frequenzen durch die Anregung wesentlich ansteigt.
+
+<br/>
+<br/>
+<h3> Periodische Kraft mit Dämpfung </h3> 
+Die anregende periodische Kraft sei
+\begin{aligned} 
+F_A = F_0 \cos \omega t
+\end{aligned}
+
+Alle Kräfte zusammen bilden die Differentialgleichung
+\begin{aligned} 
+m \ddot{x} + k \dot{x} + Dx = F_0 \cos(\omega t)
+\end{aligned}
+$ k $ sei die Dämpfungs- und $ D $ die Federkonstante.
+Nun soll, wie üblich, eine differenzierbare Funktion $ x(t) \in \R$ gefunden werden, die diese Bewegungsgleichung löst.
+<br/>
+<br/>
+Diese Gleichung hat die Inhomogenität $ F_0 \cos \omega t $. 
+<br/>
+Um solche Gleichungen zu lösen werden mehrere Lösungen gebraucht, die homogene Lösung und spezielle Lösung. Aus der Addition der Teillösungen erhält man die allgemeine Lösung. 
+\begin{aligned}
+x(t) = x_{hom}(t) + x_{spec}(t)
+\end{aligned}
+
+Nun kann man diese Gleichung gut mit Hilfe eines komplexen Exponentialansatzes lösen ($ \textbf{Störgliedansatz} $ )  
+\begin{aligned} 
+z(t) = A \exp{i(\omega t - \phi )} 
+\end{aligned}
+
+Um das jetzt zu verstehen, verwenden wir die komplexe Funktion $ z(t) = x(t) + iy(t) $ . 
+<br/>
+Der Realteil dieser komplexen Funktion sei unsere gesuchte Lösung. 
+<br/>
+Jetzt "verkomplizieren" wir unsere Differentialgleichung, indem wir $ z $ statt $ x $ schreiben, und die Periodische Kraft durch $ F_0 \exp{i \omega t} $ ersetzen.
+\begin{aligned} 
+m \ddot{z} + k \dot{z} + D z = F_0 \exp{i \omega t} 
+\end{aligned}
+Wir schauen, was passiert, wenn wir $ z $ einsetzen, und die Euler-Identität $ \exp{ix} = \cos x + i \sin x $ auf der rechten Seite verwenden:
+
+\begin{aligned} 
+(m \ddot{x} + k \dot{x} + Dx) + i(m \ddot{y} + k \dot{y} + D y) = F_{0}(\cos \omega t + i \sin \omega t)
+\end{aligned}
+Auf beiden Seiten steht nun eine komplexe Zahl. Da die Gleichheit gilt, müssen auch die jeweiligen Realteile und Imaginärteile der beiden Zahlen gleich sein.
+D.h. für die Realteile gilt
+\begin{aligned} 
+m \ddot{x} + k \dot{x} + Dx = F_0 \cos \omega t
+\end{aligned}
+Dies ist unsere usprüngliche Bewegungsgleichung.  
+
+<br/>
+Dies bedeutet, wir können auch die "verkomplizierte" Form der DGL verwenden, um auf die Lösung für $ x(t) $ zu kommen.
+<br/>
+<br/>
+Wir differenzieren den Störgliedansatz $ z = A \exp{i(\omega t - \phi )}  $  nach der Zeit
+\begin{aligned} 
+  \dot{z} = A i \omega \exp{i(\omega t - \phi )} \\
+\ddot{z} = - A \omega^2 \exp{i(\omega t - \phi )} 
+\end{aligned}
+und setzen in die DGL ein
+\begin{aligned} 
+-m  A \omega^2 \exp{i(\omega t - \phi )} + k  A i \omega \exp{i(\omega t - \phi )} + D A \exp{i(\omega t - \phi )}  \\
+= \frac{ \exp{i \omega t} }{ \exp{i \phi } }  A \left( -m \omega^2 + ik \omega + D   \right) \\
+= F_0 \exp{i \omega t}
+\end{aligned}
+\begin{aligned} 
+\implies -m \omega^2 + ik \omega + D = \frac{ F_0 }{ A } \exp{i \phi } \\ \implies (D- m \omega^2) + i(k \omega) = \frac{ F_0 }{ A } \exp{i \phi }    
+\end{aligned}
+Wir sehen auf beiden Seiten komplexe Zahlen, auf der einen Seite die "normale" Darstellung, auf der anderen die Polardarstellung. Wir erinnern uns, dass für eine komplexe Zahl $ z $ gilt
+\begin{aligned}
+& z = a + ib, \quad && z = |z| \exp{i \phi } \\
+& |z| = \sqrt{a^2 + b^2}, \quad && \phi = \arctan{(b/a)}  
+\end{aligned}
+\begin{aligned} 
+\implies F_0 / A = \sqrt{(D-m \omega^2)^2 + (k \omega)^2} \\
+\implies A(\omega) = \frac{ F_0 }{ \sqrt{(D-m \omega^2)^2 + (k \omega)^2} } \\  
+\phi(\omega) = \arctan{\left(  \frac{ k \omega }{ D - m \omega^2 }   \right)} 
+\end{aligned}
+Wir setzen dies in unseren Ansatz $ z(t) = A \exp{i(\omega t -\phi )}  $ ein und nehmen den Realteil von $ z $ , also $ x $ , als unsere Lösung.
+Dabei verwenden wir die Euler-Identität zur Auftrennung einer komplexen Zahl in Real- und Imaginärteil $ \exp{ix} = \cos x + i \sin x $  
+\begin{aligned}
+z(t) = A \exp{i(\omega t - \phi )} = A \left( \cos (\omega t - \phi) + i \sin(\omega t - \phi )  \right) \\
+= x(t) + i y(t)    
+\end{aligned}
+\begin{aligned} 
+\implies x(t) = A(\omega) \cos(\omega t - \phi(\omega))
+\end{aligned}
+
+Dies ist nur unsere spezielle Lösung $ x_{spec}(t) $ . 
+<br/>
+<br/>
+Wir haben $ A(\omega) $ und $ \phi(\omega) $ geschrieben, um zu betonen, dass die Amplitude und die Phase von der Frequenz der anregenden Kraft abhängen.
+
+
+Im Kapitel "Gedämpfte Schwingungen" haben wir die homogene Lösung dieser DGL schon besprochen, sie fallen alle exponentiell mit $ t $ ab.
+<br/>
+D.h. man könnte unsere spezielle Lösung als Lösung für große $ t $ verwenden.
+
+\begin{aligned} 
+x_{allg}(t) = \underbrace{x_{hom}(t)}_{ \approx 0 \text{ for }   t \rightarrow \infty } + x_{spec}(t)
+\end{aligned}
+
+</div>

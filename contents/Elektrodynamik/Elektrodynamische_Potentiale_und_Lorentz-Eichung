@@ -1,0 +1,181 @@
+
+
+		<!-- -------------MATHJAX BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	
+	<div class="mathjaxdiv">
+
+
+<h2>Elektrodynamische Potentiale und Lorentz-Eichung</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \newcommand{\div}[1]{\text{div }#1}
+        \newcommand{\rot}[1]{\text{rot }#1}
+        \newcommand{\grad}[1]{\text{grad }#1}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+Die zeitabhängigen Maxwellgleichungen im Vakuum sind:
+\begin{equation*}
+  \begin{aligned}
+    \div \vec {E}(\vec {r}, t) &= \frac{ \rho_{q}(\vec {r}, t) }{ \epsilon_0 } \\
+\div \vec {B}(\vec {r}, t) &= 0 \\
+\rot \vec {E}(\vec {r}, t) &= - \frac{\partial \vec {B}(\vec {r}, t)}{\partial t}  \\
+\rot \vec {B}(\vec {r}, t) &= \mu_0 \vec {j}(\vec {r}, t) + \frac{ 1 }{ c^2 } \frac{\partial \vec {E}(\vec {r}, t)}{\partial t}  
+  \end{aligned}
+\end{equation*}
+
+$ \div \vec {B} = 0 $ und $ \rot \vec {E} = - \partial \vec {B} / \partial \vec {t} $ sind homogen, es kommen keine Ströme $ \vec {j} $ oder Quell-Ladungsdichten $ \rho_q $ darin vor. Man kann für $ \div \vec {B} = 0 $ mit der Hilfsgröße $ \vec {A} $ (Vektorpotential) schreiben  :
+\begin{equation*}
+  \begin{aligned}
+    \vec {B}(\vec {r}, t) = \rot \vec {A}(\vec {r}, t) \quad ,
+  \end{aligned}
+\end{equation*}
+da $ \div \rot \vec {A}(\vec {r}, t) = 0 $ und somit die Maxwellgleichung erfüllt ist. 
+Einsetzten dieses Ausdruckes in das Induktionsgesetz $ \rot \vec {E} = - \partial \vec {B} / \partial t $ liefert
+\begin{equation*}
+  \begin{aligned}
+& \rot \vec {E} + \frac{\partial \vec {B}}{\partial t} = 0 \\
+& \rot \vec {E} + \frac{\partial }{\partial t} \left( \rot \vec {A}   \right) = 0 \\
+& \rot \left( \vec {E} + \frac{\partial \vec {A}}{\partial t}    \right) = 0 \\
+  \end{aligned}
+\end{equation*}
+Mit $ \rot \grad (...) = 0 $ gilt, dass der Ausdruck $ \vec {E} + \partial \vec {A} / \partial t $ ein Potential besitzen muss. 
+Dies erfordert die obige Gleichung, sonst würde sie für nicht homogene $ \vec {E} $ Felder nicht gelten.  
+\begin{equation*}
+  \begin{aligned}
+  &  \vec {E} + \frac{\partial \vec {A}}{\partial t} = -\grad \phi \\ 
+& \vec {E} = -\grad \phi - \frac{\partial \vec {A}}{\partial t}       
+  \end{aligned}
+\end{equation*}
+
+Wie wir bereits wissen, enthält das $ \vec {E} $-Feld sowohl Quellen  $ \rho_q/\epsilon_0 $ als auch Wirbel (erzeugt durch $ -\partial \vec {B} / \partial \vec {t}) $. $ \partial \vec {A} / \partial t $ ergibt den Wirbelanteil, $- \grad \phi $ ist eine Konsequenz der Quellen. Daher ist der obige Ausdruck relativ leicht einzusehen.
+
+<br/>
+<br/>
+Bei $ \vec {B} = \rot \vec {A} $ ist $ \vec {A} $ nicht eindeutig. Das Vektorpotential ist eine pure formale Hilfsgröße und kann eine andere Gestalt annehmen, wodurch das (physikalisch messbare) $ \vec {B} $-Feld nicht verändert wird, denn mit einer Funktion $ f(\vec {r}, t) $ kann $ \vec {A} $ zu $ \vec {A}' $ (eich-)transformiert werden, mit $ \vec {A}'(\vec {r}, t) = \vec {A}(\vec {r}, t) + \grad f(\vec {r}, t)$, denn $ \rot \grad (...) = 0 $. 
+<br/> 
+Wird $ \vec {A} = \vec {A}' - \grad f(\vec {r}, t) $ für $ \vec {A} $ in $ \vec {E} $ eingesetzt, dann ergibt sich:
+\begin{equation*}
+\begin{aligned}
+\vec {E} &= -\grad \phi - \frac{\partial \vec {A}}{\partial t} \\
+         &= -\grad \phi - \frac{\partial }{\partial t} \left( \vec {A}' - \grad f \right) \\
+&= -\grad \phi - \frac{\partial \vec {A}'}{\partial t} + \grad \left( \frac{\partial }{\partial t}  f   \right) \\
+&= - \grad \left( \phi - \frac{\partial }{\partial t} f    \right) - \frac{\partial \vec {A}'}{\partial t}        
+
+\end{aligned}
+\end{equation*}
+
+Damit das $ \vec {E} $-Feld unverändert bleibt, muss also noch zusätzlich die Transformation $ \phi' = \phi + \partial f / \partial t $ eingeführt werden. Es folgt:
+\begin{equation*}
+\begin{aligned}
+\vec {E} = -\grad \phi' - \frac{\partial }{\partial t} \vec {A}'  
+\end{aligned}
+\end{equation*}
+
+Die physikalische messbaren Felder $ \vec {E}(\vec {r}, t) $  und $ \vec {B}(\vec {r}, t) $ sind also invariant unter der Eichtransformation 
+\begin{equation*}
+\begin{aligned}
+\vec {A}(\vec {r}, t) &= \vec {A}'(\vec {r}, t) - \grad f(\vec {r}, t)   \\
+\phi (\vec {r}, t) &= \phi'(\vec {r}, t) + \frac{\partial }{\partial t} f(\vec {r}, t)
+\end{aligned}
+\end{equation*}
+der elektrodynamischen Potentiale. Hier ist $ f(\vec {r}, t) $  eine beliebige differenzierbare skalare Funktion.
+
+<br/>
+<br/>
+
+Es können nun Wellengleichungen für die elektrodynamischen Potentiale $ \vec {A} $ und $ \phi  $ gefunden werden.
+Durch Einsetzen der Ausdrücke $ \vec {E} = - \grad \phi - \partial \vec {A} / \partial t   $ und $ \vec {B} = \rot \vec {A} $ in das Induktionsgesetz ergibt sich:
+
+\begin{equation*}
+\begin{aligned}
+\rot \vec {B} &= \mu_0 \vec {j} + \mu_0 \epsilon_0 \frac{\partial }{\partial t} \vec {E} \\
+\rot \rot \vec {A} &= \grad \left( \div \vec {A}   \right) - \Delta \vec {A}  \\ 
+&= \mu_0 \vec {j} + \underbrace{\epsilon_0 \mu_0}_{=1/c^2} \frac{\partial }{\partial t} \vec {E}  \\
+&= \mu_0 \vec {j} - \frac{ 1 }{ c^2 }  \frac{\partial }{\partial t} \grad \phi - \frac{ 1 }{ c^2 }  \frac{\partial^2 }{\partial t^2} \vec {A}    
+\end{aligned}
+\end{equation*}
+Mit $ \Box = \left( \frac{ 1 }{ c^2 } \frac{\partial^2 }{\partial t^2} - \Delta    \right) $ (d'Alembert Operator) gilt:
+\begin{equation*}
+\begin{aligned}
+\Box \vec {A} &= \frac{ 1 }{ c^2 } \frac{\partial^2}{\partial t^2} \vec {A} - \Delta \vec {A} \\
+&= \mu_0 \vec {j} - \grad \left( \frac{ 1 }{ c^2 } \frac{\partial }{\partial t} \phi + \div \vec {A} \right)
+  
+\end{aligned}
+\end{equation*}
+
+Das Gaussche Druchflutungsgesetz (1. MWGL) ergibt mit $ \vec {E} = -\grad \phi - \frac{\partial }{\partial t} \vec {A}  $:
+\begin{equation*}
+\begin{aligned}
+\frac{ \rho }{ \epsilon_0 } &= \div \vec {E} = \div \left( - \grad \phi - \frac{\partial }{\partial t} \vec {A} \right) \\
+&= - \Delta \phi - \frac{\partial }{\partial t} \div \vec {A} 
+\end{aligned}
+\end{equation*}
+Addition des Terms $ \frac{ 1 }{ c^2 } \frac{\partial^2  }{\partial t^2} \phi $ liefert:
+\begin{equation*}
+\begin{aligned}
+\Box \phi &= \frac{ 1 }{ c^2 } \phi - \Delta \phi = \frac{ \rho  }{ \epsilon_0 } + \frac{\partial }{\partial t} \div \vec {A} + \frac{ 1 }{ c^2 } \frac{\partial^2 }{\partial t^2} \phi \\
+ &= \frac{ \rho }{ \epsilon_0 } + \frac{\partial }{\partial t} \left( \div \vec {A} + \frac{ 1 }{ c^2 }  \frac{\partial }{\partial t} \phi    \right)   
+\end{aligned}
+\end{equation*}
+
+Die Ausdrücke für $ \Box \vec {A} $ und $ \Box \phi  $ sind 2 gekoppelete Differentialgleichungen, die mit Hilfe der sog. Lorentzeichung entkoppelt werden können. Der Term $ \div \vec {A} + \frac{ 1 }{ c^2 } \frac{\partial }{\partial t} \phi   $ kommt sowohl in $ \Box \vec {A} $ als auch in  $ \Box \phi  $ vor. Die Bedingung der Lorentz-Eichung ist:
+\begin{equation*}
+\begin{aligned}
+\div \vec {A} + \frac{ 1 }{ c^2 } \frac{\partial }{\partial t} \phi    = 0
+\end{aligned}
+\end{equation*}
+Im Folgenden wird gezeigt, dass dieser Schritt gerechtfertigt ist. 
+Damit können die beiden DGLs entkoppelt werden und es entstehen folgende Wellengleichungen (d'Alembertsche Gleichungen):
+\begin{equation*}
+\begin{aligned}
+\Box \vec {A} &= \left( \frac{ 1 }{ c^2 } \frac{\partial^2 }{\partial t^2} - \Delta    \right) \vec {A} = \mu_0 \vec {j} \\
+\Box \phi &= \left( \frac{ 1 }{ c^2 } \frac{\partial^2 }{\partial t^2} - \Delta    \right) \phi = \frac{ \rho  }{ \epsilon_0 } 
+\end{aligned}
+\end{equation*}

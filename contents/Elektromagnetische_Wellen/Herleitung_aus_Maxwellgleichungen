@@ -1,0 +1,141 @@
+<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+<!-- put your content inside a <div class="mathjaxdiv">...</div>
+<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+<script type="text/x-mathjax-config">
+//  The document is hidden until MathJax is finished, then
+//   this function runs, making it visible again.
+MathJax.Hub.Queue(function () {
+	document.getElementById("hide_page").style.visibility = "";
+});
+MathJax.Hub.Config({
+	"HTML-CSS": { linebreaks: { automatic: true } },
+	SVG: { linebreaks: { automatic: true } }
+});
+MathJax.Hub.Config({
+	tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+</script>
+<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+<div class="mathjaxdiv" style="fonf">
+	<div style="display:none">
+			\(
+				\newcommand{>}{\greater}
+				\newcommand{\R}{\Bbb R}
+				\newcommand{\Z}{\Bbb Z}
+				\newcommand{\N}{\Bbb N}
+				\newcommand{\C}{\Bbb C}
+				\newcommand{\vec3}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+				\)
+	</div>
+	<div id="hide_page" style=""> <!-- This Div keeps the page blank until math is typeset -->
+	 	<noscript>
+	 		<div style="color:#CC0000; text-align:center">
+	 			<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+		 			requires JavaScript to process the mathematics on this page.
+		 			If your browser supports JavaScript, be sure it is enabled.
+	 			</b>
+	 		</div>
+	 		<hr></hr>
+	 	</noscript>
+
+
+<h2>Herleitung der Wellengleichungen elektromagnetischer Wellen aus den Maxwellgleichungen</h2> 
+
+<h3>Maxwellgleichungen</h3>
+<u>Gaussches Gesetz für Elektrische Felder:</u>
+\begin{equation}
+\begin{aligned} 
+\nabla \cdot \vec {E} = \frac{ \rho }{ \epsilon_0 } 
+\end{aligned}
+\end{equation}
+wird hier zu 
+\begin{aligned} 
+\nabla \cdot \vec {E} = 0 \quad ,  
+\end{aligned}
+da die Ladungsdichte $ \rho = 0 $, da keine Ladung vorhanden ist.<br/> <br/>
+<u>Gaussches Gesetz für Magnetfelder</u>:
+\begin{equation} 
+\begin{aligned} 
+\nabla \cdot \vec {B} = 0
+\end{aligned}
+\end{equation}
+<br/>
+<br/>
+
+<u>Induktionsgesetz</u>:
+\begin{equation}
+\begin{aligned} 
+\nabla \times \vec {E} = - \frac{ \partial \vec {B} }{ \partial t } 
+\end{aligned}
+\end{equation}
+<br/>
+<br/>
+
+<u>Ampere-Maxwell'sches Druchflutungsgesetz</u> 
+
+\begin{equation}
+\begin{aligned} 
+\nabla \times  \vec {B} = \mu_0 \mu_r (\vec {j} +  \epsilon_0 \epsilon_r \frac{  \partial \vec {E} }{  \partial t }) 
+\end{aligned}
+\end{equation}
+
+wird hier, im Fall des Vakuums ($ \epsilon_r = \mu_r = 1 $) und der Abwesenheit von äußeren Strömen ($ \vec {j} = 0 $) zu:
+
+\begin{aligned} 	
+\nabla \times  \vec {B} = \mu_0  \epsilon_0 \frac{  \partial \vec {E} }{  \partial t } 
+\end{aligned}
+
+<br/>
+<br/>
+
+
+<h3>Differentialgleichung des Elektrischen Feldes</h3>
+Wir beginnen mit dem Induktionsgesetz (3):
+\begin{aligned} 
+\nabla \times \vec {E} = - \frac{ \partial \vec {B} }{ \partial t } 
+\end{aligned}
+
+Dann bilden wir die Rotation ($ \nabla \times (...) $ ) auf beiden Seiten:
+\begin{aligned} 
+\nabla \times (\nabla \times \vec {E})  = \nabla \times (- \frac{ \partial \vec {B} }{ \partial t }) 
+\end{aligned}
+
+Die Rotation kann in die partielle Zeitableitung hineingezogen werden:
+\begin{aligned} 
+\nabla \times (\nabla \times \vec {E})  = - \frac{ \partial  }{ \partial t } (\underbrace{ \nabla \times \vec {B}}_{=\mu_0 \epsilon_0 \frac{ \partial \vec {E} }{ \partial t } } )
+\end{aligned}
+
+Wir erkennen auf der rechten Seite das Durchflutungsgesetz (4). 
+Außerdem verwenden wir auf der linken Seite die Vektoridentität $ \nabla \times (\nabla \times \vec {E}) = \nabla \cdot (\nabla \cdot \vec {E}) - \nabla^2 \cdot \vec {E}$ :
+
+\begin{aligned} 
+\nabla \cdot (\underbrace{\nabla \cdot \vec {E}}_{=0} ) - \nabla^2 \cdot \vec {E} = - \mu_0 \epsilon_0 \frac{ \partial^2 \vec {E} }{ \partial t^2 }
+\end{aligned}
+
+Wir erkennen die 1. Maxwellsche Gleichung auf der linken Seite und der Ausdruck reduziert sich zu einer typischen Wellengleichung:
+\begin{aligned} 
+\nabla^2 \vec {E} - \mu_0 \epsilon_0 \frac{ \partial^2 \vec {E} }{ \partial t^2 } = 0
+\end{aligned}
+
+Wellengleichungen (wie z.B. in der Mechanik) sehen immer folgendermaßen aus:
+\begin{aligned} 
+\nabla^2 \vec {A} - \frac{ 1 }{ v^2 }  \frac{ \partial^2 \vec {A} }{ \partial t^2 } = 0
+\end{aligned}
+
+Daher gilt hier $ \mu_0 \epsilon_0 = 1/v^2 $  $  \implies v = 1/\sqrt{\mu_0 \epsilon_0} = c $. Elektromagnetische Wellen breiten sich im Vakuum mit Lichtgeschwindigkeit aus.
+
+<br/>
+<br/>
+Eine übliche Form der Wellen-Differentialgleichung für $ \vec {E} $ ist:
+\begin{aligned} 
+\nabla^2 \vec {E} - \frac{ 1 }{ c^2 }  \frac{ \partial^2 \vec {E} }{ \partial t^2 } = 0
+\end{aligned}
+
+</div>
+</div>

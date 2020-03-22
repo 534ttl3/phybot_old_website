@@ -1,0 +1,84 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Herleitung Zentripetalkraft</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+
+Wenn sich ein Massenpunkt entlang einer Kreisbahn bewegt, dann wirkt eine Kraft auf den Massenpunkt, die in Richtung des Kreiszentrums zeigt und den Massenpunkt in diese Richtung beschleunigt, um ihn auf dieser Kreisbahn zu halten. Angenommen, der Kreismittelpunkt ist der Koordinatenursprung und der Massenpunkt bewege sich auf einer festen Kreisbahn in der x-y-Ebene um den Ursprung. Dann sind die Bewegungsgleichungen einfach gegeben durch Zylinderkoordinaten mit $ z=0 $ (bzw. Polarkoordinaten). 
+\begin{aligned} 
+ \vec {r}(x(t),y(t),z=0) = \vvv{ x(t) \\ y(t) \\ 0 } \quad \longrightarrow \quad  \vec {r}(R, \phi(t) , z=0) = \vvv{ R \cos \phi(t)   \\ R \sin \phi(t)  \\ 0 }
+\end{aligned}
+Laut Newton gilt $ \vec {F} = m \vec {a} = m \ddot{\vec {r}} = m \frac{ d^2\vec {r} }{ dt^2 } $ . Daher ist die Beschleunigung die 2. Ableitung des Ortsvektors nach der Zeit. Der pro Zeiteinheit von der Verbindungslinie Massenpunkt -> Ursprung überstrichene Winkel $ \phi(t)  $ kann als Produkt von Winkelgeschwindigkeit mal Zeit ausgedrückt werden $ \phi(t) = \omega t $. Es wird jede einzelne Komponente von $ \vec {r}(t) $ separat nach der Zeit abgeleitet.
+\begin{aligned} 
+\frac{ d  }{ dt } \vec {r}(t) = \vvv{ -R \omega \sin (\omega t) \\ R \omega \cos (\omega t) \\ 0 } = \vec {v}(t) \implies |\vec {v}(t)| = | \omega |\vec {r}|| = \omega R = v
+\end{aligned}
+
+\begin{aligned} 
+\frac{ d^2  }{ dt^2 } \vec {r}(t) =  \frac{ d  }{ dt } \vec {v}(t) = \vvv{ -R \omega^2 \cos (\omega t) \\ -R \omega^2 \sin (\omega t) \\ 0 } = \vec {a}(t)
+\end{aligned} 
+ 
+\begin{aligned} 
+\frac{ d^2  }{ dt^2 } \vec {r}(t) = - \omega^2 \vvv{ R  \cos (\omega t) \\  R \sin (\omega t) \\ 0 }  = - \omega^2 \vec {r} = \vec {a}(t) \implies |\vec {a}(t)| = |\omega^2 |\vec {r}|| = \omega^2 R = a
+\end{aligned} 
+Man sieht nun, dass die Zentripetalbeschleunigung in die entgegengesetzte Richtung des Ortsvektors zeigt.
+Es gilt $ \vec {F}  = m \ddot{\vec {r}(t)} $.
+Betragsmäßig gilt:
+\begin{aligned} 
+ F_{z} = m \omega^2 R = \frac{ v^2 }{ R } 
+\end{aligned}
+  
+</div>

@@ -1,0 +1,192 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Elektrisches Feld an Grenzfläche zwischen zwei Dielektrika</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+
+$ \textbf{I}  \quad $ <b>$ \vec {E} $ -Feldvektor an der Grenzfläche zwischen zwei ungeladenen Dielektrika mit den Dielektrizitätskonstanten $ \epsilon_1 $ und $ \epsilon_2 $ ohne freie Ladungen in der Grenzfläche</b> 
+<br/>
+<br/>
+$ (\rm{i})  \quad $ <b>Tangentialkomponente</b>  
+<br/>
+<br/>
+<div style="width:100%;" ><img style="left:0; right:0;  margin:auto;" src="/contents/_images/EtDielektrika.svg"></div>
+
+<br/>
+Der Zusammenhang, dass das geschlossene Wegintegral über das $ \vec {E} $ -Feld 0 ist, kann dadurch erklärt werden, dass $ \vec {E} $ ein konservatives Feld ist, d.h. beim Transport einer Ladung entlang eines beliebigen Weges zurück zum Ausgangspunkt die geleistete Arbeit 0 ist, alles andere würde dem Energieerhaltungssatz widersprechen. Wird das Arbeitsintegral durch die Ladung geteilt, so erhält man das Wegintegral über $ \vec {E} $. 
+<br/>
+<br/>
+In dieser Situation wird die Größe des Bereiches, über den das $ \vec {E} $ -Feld integriert wird, so gewählt, dass $ \vec {E}_1 = const $ und $ \vec {E}_2 = const $ angenommen werden kann. 
+Da der Weg senkrecht zur Grenzfläche sehr klein ist ("0 ist"), reduziert sich das geschlossene Integral auf zwei Integrale innerhalb der verschiedenen Dielektrika an der Grenzfläche mit den Streckenelementen $ \text{ d} \vec {s}_i $, die in entgegengesetzte Richtungen zeigen. 
+<br/>
+<br/>
+Da tangential zur Grenzfläche integriert wird ($ \text{d} \vec {s} $ immer tangential zur Grenzfläche), trägt auch nur die Komponente des $ \vec {E} $ -Feldes, die in diese Richtung (die Richtung von $ \text{ d} \vec {s} $) zeigt, zum Skalarprodukt und zum Integral bei. 
+\begin{aligned} 
+\oint_{\partial A}^{}{\vec {E} \text{ d} \vec {s}} = \int_{S1}^{}{\vec {E}_{1} \text{ d}\vec {s}_1} + \int_{S2}^{}{\vec {E}_{2} \text{ d}\vec {s}_2} 
+\end{aligned}
+\begin{aligned} 
+ = \int_{S1}^{}{E_{1,t} \text{ d}s_1} + \int_{S2}^{}{E_{2,t} \text{ d}s_2}
+\end{aligned}
+(Erinnerung: Integrationsbereich hinreichend klein gewählt, sodass $ \vec {E}_1= const $, $ \vec {E}_2= const $ )
+\begin{aligned} 
+ = E_{1,t} \int_{S1}^{}{ \text{ d}s_1} + E_{2,t} \int_{S2}^{}{ \text{ d}s_2}
+\end{aligned}
+\begin{aligned} 
+ = E_{1,t} \int_{S1}^{}{ \text{ d}s_1} + E_{2,t} \int_{S2}^{}{ \text(-{ d}s_1)}
+\end{aligned}
+\begin{aligned} 
+ = (E_{1,t} - E_{2,t}) s_1 = 0
+\end{aligned}
+
+<div style="border: 2px solid grey; padding:10px;">
+   
+\begin{aligned} 
+ \implies  E_{1,t} = E_{2,t}
+\end{aligned}
+
+<b>
+Die Tangentialkomponente des $ \vec {E} $ -Feldes an der Grenzfläche zweier ungeladener Dielektrika mit $ \epsilon_1 $ bzw. $ \epsilon_2 $ ist stetig. 
+</b>
+<br/>
+Dies gilt natürlich auch für $ \epsilon_1 = 1 $ bzw. $ \epsilon_2 = 1 $, also auch für eine Grenzschicht zwischen einem umgeladenen Dielektrikum und dem Vakuum.
+</div>
+
+
+
+<br/>
+<br/>
+$ (\rm{ii})  \quad $ <b>Normalkomponente</b>   
+<br/>
+<br/>
+Als geschlossene Oberfläche für das Gaußsche Gesetz wird eine "Pillbox" (runde Dose) gewählt, deren Dicke gegen 0 geht, damit der Fluss durch die Seiten (verursacht durch potentielle Tangentialkomponenten des $ \vec {D} $ -Feldes auf beiden Seiten) 0 wird und vernachlässigt werden kann. Das Gaußsche Gesetz lautet für ein ungeladenes Volumen, das durch die geschlossene Fläche $ \vec {A} $ begrenzt wird:
+\begin{aligned} 
+\int_{V}^{}{\text{div}  \vec {D} \text{ d}V} = \oint_{A}^{}{\vec {D} \text{ d} \vec {A}}  = q_{inside} = 0
+\end{aligned}
+
+Der Normalenvektor $ \hat{a} $ der Fläche $ \vec {A} = \hat{a} \cdot A $ ist so definiert, dass er immer senkrecht auf der Fläche steht und nach außen zeigt, daher zeigt er auch für die beiden Grundflächen in entgegengesetzte Richtungen.
+<br/>
+<br/>
+Da entlang der Normalenrichtung der Fläche integriert wird, trägt effektiv nur die Normalkomponente des $ \vec {D} $ -Feldes zum Skalarprodukt bei und zum Integral bei. Der Integrationsbereich ist hinreichend klein gewählt, sodass im gesamten Volumen $ \vec {D} = const $ angenommen werden kann.
+\begin{aligned} 
+\oint_{A}^{}{\vec {D} \text{ d} \vec {A}} = \int_{A1}^{}{\vec {D}_1 \text{ d} \vec {A_1}} + \int_{A2}^{}{\vec {D}_2 \text{ d} \vec {A_2}} 
+\end{aligned}
+
+\begin{aligned} 
+= \int_{A1}^{}{\vec {D}_1 \text{ d} \vec {A_1}} - \int_{A2}^{}{\vec {D}_2 \text{ d} \vec {A_1}} 
+\end{aligned}
+
+\begin{aligned} 
+= \int_{A1}^{}{D_{1,n} \text{ d} A_1} - \int_{A2}^{}{D_{2,n} \text{ d} A_1} 
+\end{aligned}
+
+\begin{aligned} 
+= D_{1,n} \int_{A1}^{}{ \text{ d} A_1} - D_{2,n} \int_{A2}^{}{ \text{ d} A_1} 
+\end{aligned}
+\begin{aligned} 
+= D_{1,n} A_1 - D_{2,n}  A_1 = (D_{1,n}  - D_{2,n})  A_1 = 0 
+\end{aligned}
+\begin{aligned} 
+\end{aligned}
+
+\begin{aligned} 
+\implies  D_{1,n}  = D_{2,n}
+\end{aligned}
+\begin{aligned} 
+ \epsilon_0 \epsilon_1 E_{1,n}  = \epsilon_0 \epsilon_2 E_{2,n}
+\end{aligned}
+
+
+
+
+<div style="border: 2px solid grey; padding:10px;">
+   
+\begin{aligned} 
+E_{2,n} = \frac{ \epsilon_1 }{ \epsilon_2 } E_{1,n}  
+\end{aligned}
+
+<b>
+Die Normalkomponente des $ \vec {E} $ -Feldes an der ungeladenen Grenzfläche zweier ungeladener Dielektrika mit $ \epsilon_1 $ bzw. $ \epsilon_2 $ ist nicht stetig. 
+</b>
+<br/>
+Dies gilt natürlich auch für $ \epsilon_1 = 1 $ bzw. $ \epsilon_2 = 1 $, also auch für eine Grenzschicht zwischen einem umgeladenen Dielektrikum und dem Vakuum.
+</div>
+
+<br/>
+<br/>
+$ (\rm{iii})  \quad $ <b>Brechung des $ \vec {E} $ -Feldes</b>   
+<br/>
+<br/>
+
+<img style="left:0; right:0;  margin:auto;" src="/contents/_images/dielektrikaEfeldbrechung.png"/>
+
+\begin{aligned}
+\tan \alpha_1 = \frac{ E_{1,t} }{ E_{1,n} } \quad \quad \tan \alpha_2 = \frac{ E_{2,t} }{ E_{2,n} }  
+\end{aligned}
+\begin{aligned}
+E_{1,t} = E_{2,t} \quad \quad \epsilon_{1} E_{1,n} = \epsilon_2 E_{2,n}
+\end{aligned}
+\begin{aligned} 
+\implies \frac{ \tan \alpha_1 }{ \tan \alpha_2 }  = \frac{ E_{1,t} E_{2,n}}{ E_{1,n} E_{2,t} } = \frac{ E_{2,n} }{ E_{1,n} } = \frac{ \epsilon_1 }{ \epsilon_2 } 
+\end{aligned}
+
+<div style="border: 2px solid grey; padding:10px;">
+\begin{aligned}
+\implies \frac{ \tan \alpha_1 }{ \tan \alpha_2 } = \frac{ \epsilon_1 }{ \epsilon_2 }   
+\end{aligned}
+</div>
+
+</div>

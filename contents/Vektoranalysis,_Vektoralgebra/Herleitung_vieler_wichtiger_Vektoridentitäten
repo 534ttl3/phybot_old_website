@@ -1,0 +1,331 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Beweise wichtiger Vektoridentitäten mit Hilfe des Levi-Civita Symbols und des Kronecker Deltas</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+        \newcommand{\vv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \newcommand{\vvvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \newcommand{\grad}{\text{ grad }}
+        \newcommand{\rot}{\text{ rot  }}
+        \newcommand{\div}{\text{ div  }}
+ \) 
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br /> 
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+
+
+
+Zunächst die Fakten:
+Sei $ D \subset \R^3, f \in C^2(D, \R), \vec {v} \in C^2(D, \R^3). $
+Seien $ \vec {a}=(a_1, a_2, a_3), \vec {b}=(b_1, b_2, b_3), \vec {c}= (c_1, c_2, c_3) $ dreidimensionale Vektoren, deren zweite partielle Ableitung jeweils stetig ist.  
+<br/>
+Dann gelten folgende Vektoridentitäten:
+<br/>
+<br/>
+\begin{aligned} 
+
+
+\text{a) }   & \rot ( \grad f  )  &&= 0 \\
+\text{b) }   & \div ( \rot \vec {v}  )  &&= 0 \\
+\text{c) }   & \div ( \grad f  )  &&= \Delta f \\
+\text{d) }   & \div ( f \vec {v}  )  &&= (\grad f  ) \cdot \vec {v}+ f \div \vec {v} \\
+\text{e) }   & \rot ( f \vec {v}  )  &&= (\grad f  ) \times \vec {v} + f \rot \vec {v}\\
+\text{f) }   & \rot ( \rot \vec {v}  )  &&= \grad (\div \vec {v}) - \Delta \vec {v}  \\
+\\
+\text{g)}    & \text{   } \vec {a} (\vec {b} \times \vec {c}) &&= \vec {c} (\vec {a} \times \vec {b}) = \vec {b} (\vec {c} \times  \vec {a}) \\
+\text{h)}    &  \div (\lambda \vec {a} \times \vec {b}) &&= \lambda (\vec {b} (\rot \vec {a}) - \vec {a} (\rot  \vec {b})) +  (\vec {a} \times \vec {b} )  (\grad \lambda ) \\
+\text{i)}    & \grad (\vec {a} \vec {b}) &&= (\vec {a} \cdot  \grad ) \vec {b} + (\vec {b} \cdot \grad   ) \vec {a} + \vec {a} \times (\rot  \vec {b}) + \vec {b} \times (\rot  \vec {a})  \\
+\text{j)}    & \text{   } \vec {a} \times ( \vec {b} \times \vec {c} ) &&= \vec {b} (\vec {a} \vec {c}) - \vec {c} (\vec {a} \vec {b})
+\end{aligned}
+
+
+Für $ \vec {a}(x_1, x_2, x_3), \vec {b}(x_1, x_2, x_3) \in C^2(D, \R^3) $ gelten die folgenden Darstellungen mit der Einsteinschen Summenkonvention (das Summenzeichen wird weggelassen, bei doppelt auftretenden Indices wird jeweils über alle möglichen Werte summiert):
+
+\begin{aligned} 
+& \vec {a} \times \vec {b} &&= \epsilon_{ijk} \vec {e_i} a_j b_k \\
+& \vec {a} \cdot \vec {b} &&= \delta_{ij} a_i b_j \\
+& \rot \vec {v} &&= \nabla \times \vec {v}  = \epsilon_{ijk} \vec {e_i} \nabla_{j} v_k\\  & &&= \epsilon_{ijk} \vec {e_i} \frac{\partial v_k}{\partial x_j} v_k \\
+& \div \vec {v} &&= \nabla \cdot \vec {v} = \delta_{ij} \nabla_i v_j \\
+& &&= \delta_{ij} \frac{\partial }{\partial x_i} v_j \\
+& \grad f &&= \nabla \cdot f = \vec {e_i} \frac{\partial f}{\partial x_i} \\
+& && = \vec {e_i} \nabla_i f \\ 
+& && \ \\
+& \epsilon_{ijk} \epsilon_{klm} &&= \delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}
+\end{aligned}
+Wir wollen diese beweisen, vorher jedoch noch ein kleiner Satz:
+
+<br/>
+<br/>
+
+<b>
+Satz von Schwarz:</b> 
+<br/>
+Sind die zweiten partiellen Ableitungen von $ f $ stetig, so kann man deren Reihenfolge vertauschen ($ f=f(x_1, x_2, x_3) $ :
+\begin{aligned}
+\frac{\partial }{\partial x_i} \left( \frac{\partial f}{\partial x_j}    \right) = \frac{\partial }{\partial x_j} \left( \frac{\partial f}{\partial x_i}    \right)
+\end{aligned}
+
+<br/>
+<br/>
+<u><b>a)</b>$ \quad  \rot ( \grad f  ) = 0 $ </u>
+\begin{aligned} 
+\nabla \times (\nabla f) &= \epsilon_{ijk} \vec {e_i} \frac{\partial }{\partial x_j} \left( \nabla f   \right)_k \\
+&= \epsilon_{ijk} \vec {e_i} \nabla_j \nabla_k f \\
+&= \vec {e_1} \nabla_2 \nabla_3 f - \vec {e_1} \nabla_3 \nabla_2 f \\
+&+ \vec {e_2} \nabla_3 \nabla_1 f - \vec {e_2} \nabla_1 \nabla_3 f \\
+&+ \vec {e_3} \nabla_1 \nabla_2 f - \vec {e_3} \nabla_2 \nabla_1 f 
+\end{aligned}
+Nach dem Satz von Schwartz können wir die Reihenfolge der partiellen Ableitungen (der $  \Delta  $'s)  vertauschen:
+\begin{aligned} 
+\implies \rot (\grad f  ) = 0
+\end{aligned}
+
+
+<br/>
+<br/>
+<u><b>b)</b>$ \quad  \div ( \rot \vec {v}  ) = 0 $ </u>
+
+\begin{aligned} 
+\div (\rot \vec {v}) &= \nabla (\rot \vec {v}) \\
+&= \delta_{ij} \nabla_i \left( \nabla \times \vec {v}    \right)_j \\
+&= \delta_{ij} \nabla_i \epsilon_{jkl} \nabla_k v_l \\
+&= \delta_{ij} \epsilon_{jkl} \nabla_i \nabla_k v_l \\
+&= \epsilon_{jkl} \nabla_j \nabla_k v_l \\
+&= \nabla_1 \nabla_2 v_3 - \nabla_1 \nabla_3 v_2 \\
+&+ \nabla_2 \nabla_3 v_1 - \nabla_2 \nabla_1 v_3 \\
+&+ \nabla_3 \nabla_1 v_2 - \nabla_3 \nabla_2 v_1 \\
+&= 0  
+\end{aligned}
+
+<br/>
+<br/>
+<u><b>c)</b>$ \quad  \div ( \grad f    ) = \Delta f $ </u>
+\begin{aligned} 
+\div (\grad f  ) &= \nabla (\grad f  ) = \nabla (\nabla f) = (\nabla \nabla) f \\ 
+&= \Delta f 
+
+\end{aligned}
+
+
+<br/>
+<br/>
+<u><b>d)</b>$ \quad  \div (f \vec {v}) = (\grad f  ) \vec {v} + f \div \vec {v}$ </u>
+
+\begin{aligned} 
+f \cdot \vec {v} = \vec {e_i} v_i f ,\quad \nabla_i f = (\nabla f)_i \\
+\end{aligned}
+\begin{aligned} 
+\div (f \vec {v}) &= \delta_{ij} \delta_i (f \vec {v})_j \\
+&= \delta_{ji} \nabla_{i} f v_j \\
+&= v_i (\nabla_i f) + v_j (\nabla_j f) \\
+&= v_i (\nabla f)_i + v_j (\nabla f)_j \\
+&= \vec {v} \grad f  + f \div \vec {v} 
+\end{aligned}
+
+<br/>
+<br/>
+<u><b>e)</b>$ \quad  \rot (f \vec {v}) = (\grad f  ) \times \vec {v} + f(\rot  \vec {v})$ </u>
+
+\begin{aligned}
+\rot (f \vec {v}) &= \epsilon_{ijk} \vec {e_i} \nabla_j (f \vec {v})_k \\
+&= \epsilon_{ijk} \vec {e_i} ((\nabla_j f) v_k + f (\nabla_i v_k)) \\
+&= \epsilon_{ijk} \vec {e_i} (\nabla_j f) v_k + \epsilon_{ijk} \vec {e_i} f \nabla_j v_k \\
+&= \epsilon_{ijk} \vec {e_i} (\nabla f)_j v_k + f \epsilon_{ijk} \vec {e_i} \nabla_j v_k \\
+&= (\nabla f) \times \vec {v} + f (\nabla \times \vec {v}) \\
+&= (\grad f  ) \times \vec {v} + f(\rot  \vec {v})
+
+\end{aligned}
+
+<br/>
+<br/>
+<u><b>f)</b> </u> $ \quad  \rot (\rot \vec {v}) = \grad (\div \vec {v}) - \Delta \vec {v}  $
+<br/>
+<br/>
+Wir verwenden die Vektoridentität
+\begin{aligned}
+\epsilon_{ijk} \epsilon_{klm} = \delta_{il} \delta_{jm} - \delta_{im} \delta_{jl} \\
+(\nabla \times \vec {v})_k = \epsilon_{klm} \nabla_l v_m \\
+\Delta = \nabla^2 = \nabla \nabla 
+\end{aligned}
+\begin{aligned}
+\left( \rot (\rot \vec {v})   \right)_i &= (\nabla \times (\nabla \times \vec {v}))_i \\
+&= \epsilon_{ijk} \nabla_j (\nabla \times \vec {v})_k \\
+&= \epsilon_{ijk} \epsilon_{klm} \nabla_j \nabla_l v_m \\
+&= \delta_{il} \delta_{jm} \nabla_{j} \nabla_l v_m - \delta_{im} \delta_{jl} \nabla_j \nabla_l v_m \\
+&= \delta_{il} \nabla_l \delta_{jm} \nabla_j v_m - \nabla \cdot \nabla \delta_{im} v_m \\
+&= \delta_{il} \nabla_l ( \div \vec {v}) - \Delta \delta_{im} v_m \\
+&= \nabla_i (\div \vec {v}) - \Delta v_i    
+\end{aligned}
+Dies gilt für jede Komponente
+\begin{aligned} 
+\vvv{ \nabla_1 \\ \nabla_2 \\ \nabla_3 } \div \vec {v} - \Delta \vvv{ v_1 \\ v_2 \\ v_3 } = \grad (\div \vec {v}) - \Delta \vec {v} = \rot (\rot \vec {v})  
+\end{aligned}
+
+
+
+<br/>
+<br/>
+<u><b>g)</b></u>  
+$ \quad  \vec {a} (\vec {b} \times \vec {c}) = \vec {c} (\vec {a} \times \vec {b}) = \vec {b} (\vec {c} \times  \vec {a}) \quad $ (Zyklische Vertauschung Spatprodukt Beweis) </u>
+
+\begin{aligned} 
+(\vec {b} \times \vec {c} )_j = \epsilon_{jkl} b_k c_l
+\end{aligned}
+
+\begin{aligned} 
+
+ \vec {a} (\vec {b} \times \vec {c}) &= \delta_{ij} a_i (\vec {b} \times \vec {c} )_j \\ 
+&= \delta_{ij} a_i \epsilon_{jkl} b_k c_l \\
+&= a_j \epsilon_{jkl} b_k c_l
+\end{aligned}
+
+Von hier aus schreiben wir nun für den einen Fall:
+
+\begin{aligned} 
+ a_j \epsilon_{jkl} b_k c_l &= c_l \epsilon_{jkl} b_k a_j \\
+&= c_l(-\epsilon_{kjl} a_j b_k) \\
+&= c_l(\epsilon_{ljk} a_j b_k) \\
+&= c_l (\vec {a} \times \vec {b})_l \\
+&= \vec {c} (\vec {a} \vec {b})
+\end{aligned}
+
+und für den anderen Fall gilt analog
+\begin{aligned} 
+ a_j \epsilon_{jkl} b_k c_l &= c_l \epsilon_{jkl} b_k a_j \\
+&= b_k (-\epsilon_{klj} c_l a_j) \\
+&= b_k (\vec {c} \times \vec {a})_k \\
+&= \vec {b} (\vec {c} \times \vec {a})
+\end{aligned}
+
+
+<br/>
+<br/>
+<u><b>h)</b> $ \quad  \nabla (\lambda \vec {a} \times \vec {b}) = (\nabla \lambda ) (\vec {a} \times \vec {b} ) + \lambda (\vec {b} (\nabla \times \vec {a}) - \vec {a} (\nabla \times \vec {b})) $ </u>
+
+\begin{aligned} 
+ \nabla (\lambda \vec {a} \times \vec {b}) &= \delta_{ij} \nabla_i (\lambda \vec {a} \times \vec {b})_j \\
+&= \nabla_i (\lambda \epsilon_{ikl}) a_k b_l) \\
+&= (\nabla_i \lambda )_i (\epsilon_{ikl} a_k b_l) + \lambda (\epsilon_{ikl} (\nabla_i a_k) b_l + \epsilon_{ikl} a_k (\nabla_i b_l)) \\
+&= (\nabla  \lambda )_i (\vec {a} \times \vec {b})_i + \lambda (\epsilon_{lik} (\nabla_i a_k) b_l - \epsilon_{kil} (\nabla_i b_l) a_k) \\
+&= \delta_{ij} (\nabla \lambda )_i (\vec {a} \times \vec {b})_j + \lambda (b_l (\nabla \times \vec {a})_l - a_k (\nabla \times \vec {b})_k ) \\
+&= (\nabla \lambda ) (\vec {a} \times \vec {b}) + \lambda (\vec {b} (\nabla \times \vec {a}) - \vec {a} (\nabla \times \vec {b})))
+\end{aligned} 
+
+
+
+<br/>
+<br/>
+<u><b>i)</b></u> $ \quad \nabla (\vec {a} \vec {b}) = (\vec {a} \nabla) \vec {b} + (\vec {b} \nabla) \vec {a} + \vec {a} \times (\nabla \times \vec {b}) + \vec {b} \times (\nabla \times \vec {a})$ 
+
+<br/>
+<br/>
+
+Die Summe auf der rechten Seite enthält zwei Teilsummen von der selben Struktur, weshalb wir nur eine Teilsumme davon ausrechnen müssen: 
+\begin{aligned}
+(\vec {a} \nabla)\vec {b} +  \vec {a} \times (\nabla \times \vec {b}) &= \vec {e_i} \left( a_p \nabla_p b_i + \epsilon_{ijk} \epsilon_{klm} a_j \nabla_l b_m \right) \\
+&= \vec {e_i} \left( a_p \nabla_p b_i + \delta_{il} \delta_{jm} a_j \nabla_l b_m - \delta_{im} \delta_{jl} a_j \nabla_l b_m   \right) \\
+&= \vec {e_i} \left( a_p \nabla_p b_i + \delta_{il} a_m \nabla_l b_m - \delta_{jl} a_j \nabla_l b_i   \right) \\
+&= \vec {e_i} \left( a_p \nabla_p b_i + a_m \nabla_i b_m - a_j \nabla_j b_i \right) \\
+&= \vec {e_i} \left( a_m \nabla_i b_m   \right)
+\end{aligned}
+
+Dann gilt das selbe für die andere Teilsumme, $  a_m  $ und $ b_m $  werden umgekehrt:
+\begin{aligned} 
+(\vec {b} \nabla) \vec {a} + \vec {b} \times (\nabla \times \vec {a}) = \vec {e_i} \left( b_m \nabla_i a_m   \right)
+\end{aligned}
+
+Die beiden Ergebnisse addiert ergeben die Summe, die entsteht, wenn man auf der linken Seite die Produktregel ausführt:
+\begin{aligned} 
+\nabla(\vec {a} \vec {b}) &= \vec {e_i} \nabla_i (a_m b_m) \\
+&= \vec {e_i} ((\nabla_i a_m) b_m) + (a_m (\nabla_i b_m))   
+\end{aligned}
+Damit wäre diese Vektoridentität auch bewiesen.
+
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<u><b>j)</b></u> $ \quad \vec {a} \times ( \vec {b} \times \vec {c}  ) = \vec {b} (\vec {a} \vec {c}) - \vec {c} (\vec {a} \vec {b}) \quad $ (bac-cab Regel Beweis)
+
+
+<br/>
+<br/>
+Dieser Zusammenhang von Kronecker-Delta und Epsilon-Tensor ist hier wichtig:
+\begin{aligned}
+\sum_{k}^{}{\epsilon_{ijk}\epsilon_{klm}} = \delta_{il}\delta_{jm} - \delta_{im}\delta_{jl} 
+\end{aligned}
+
+1. Kreuzprodukt: 
+\begin{aligned}
+\vec {b} \times \vec {c} = \epsilon_{ijk} \vec {e_i} b_j c_k
+\end{aligned}
+2. Kreuzprodukt: 
+\begin{aligned} 
+ \vec {a} \times ( \vec {b} \times \vec {c}  ) = \epsilon_{ijk}\vec {e_i} a_j (\vec {b} \times \vec {c})_k 
+\end{aligned}
+
+k-te Komponente des 1. Kreuzprodukts
+\begin{aligned}
+ (\vec {b} \times \vec {c})_k = \epsilon_{klm} b_l c_m
+\end{aligned}
+ 
+Einsetzen und ausrechnen:
+\begin{aligned} 
+\implies \vec {a} \times ( \vec {b} \times \vec {c}  ) = \epsilon_{ijk}\vec {e_i} a_j \epsilon_{klm} b_l c_m = \vec {e_i} \epsilon_{ijk} \epsilon_{klm} a_j b_l c_m = \vec {e_i} (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl} ) a_j b_l c_m = \vec {e_i} \delta_{il}\delta_{jm} a_j b_l c_m  - \vec {e_i} \delta_{im}\delta_{jl} a_j b_l c_m = \vec {e_i} \delta_{il} b_l  \underbrace{\delta_{jm} a_j c_m}_{=\vec {a} \vec {c}} -  \vec {e_i}\delta_{im} c_m \underbrace{\delta_{jl} a_j b_l}_{=\vec {a} \vec {b}} = \vec {e_i} \delta_{il} b_l (\vec {a}  \vec {c}) - \vec {e_i} \delta_{im}c_m (\vec {a} \vec {b}) = \vec {e_i} b_i (\vec {a} \vec {c}) - \vec {e_i} c_i (\vec {a} \vec {b}) = \vec {b} (\vec {a} \vec {c}) - \vec {c} (\vec {a} \vec {b})
+\end{aligned}
+
+
+
+</div>

@@ -1,0 +1,164 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Freie Schwingungen</h2>
+(bzw. Freie Harmonische Schwingungen)
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+Eine Masse $ m $ sei an einer Feder befestigt und bewege sich 1-dimensional beeinflusst von einer Hookeschen Rückstellkraft durch den Raum. Dabei sei $ \vec {r} $ der Ort, an dem sich die Masse befindet, und $ \vec {r} = 0 $, der Ursprung des Koordinatensystems, der Ort an dem sich die Masse befindet, wenn die Feder entspannt ist und keine Kräfte auf sie wirken.
+<br/>
+<br/>
+Die einzige Kraft, die auf die Masse wirkt ist die lineare Rückstellkraft der Feder. Nach dem Hookschen Gesetz ist die Rückstellkraft proportional zum Betrag der Auslenkung aus der Ruheposition und wirkt in Richtung Ursprung. $ k $ ist die Federkonstante, also die "Festigkeit" der Feder.
+\begin{aligned} 
+\vec {F_R} = k \vec {r}
+\end{aligned}
+$ \vec {F_{net}}=m \ddot{\vec {r}} $ ist die Gesamtkraft, also die Summe aller Kräfte, die auf die Masse wirken:
+\begin{aligned}
+ \vec {F_{net}} = m \ddot{\vec {r}} = \sum_{i}^{}{\vec {F_i}}  = -k \vec {r} \\
+\implies \ddot{\vec {r}} = - \frac{ k }{ m }  \vec {r}
+\end{aligned}
+Wir nennen $ k/m \equiv \omega^2 $. Der Sinn dahinter wird klar, wenn wir die Lösung haben.  
+<br/>
+Nehmen wir an, dass die Gerade entlang der sich die Masse bewegt, die x-Achse sei, d.h. wir können die Bewegungsgleichung schreiben als
+\begin{aligned} 
+\ddot{x} = - \omega^2 x \\
+\ddot{x} + \omega^2 x = 0
+\end{aligned}
+Diese Form ist extrem wichtig, und man sollte sie sich merken. Die Lösung ist übrigens $ x(t) = A \cos(\omega t + \phi ) $. 
+<br/>
+Man könnte die Lösung jetzt einfach vorgeben, ableiten, in die Bewegungsgleichung einsetzen und zeigen, dass sie erfüllt ist. <br/>
+Oder man kann sie herleiten. Ich habe die Lösung jetzt zwar schon verraten, aber wir wollen sie trotzdem herleiten.
+
+<br/>
+<br/>
+<br/>
+Um diese homogene DGL zu lösen, können wir den Ansatz
+\begin{aligned}
+x(t) = C e^{\lambda t} 
+\end{aligned}
+verwenden, d.h. wir leiten den Ansatz ab und setzen die Ergebnisse wieder in die DGL ein:
+\begin{aligned}
+\dot{x} &= C \lambda e^{\lambda t} \\
+\ddot{x} &= C \lambda^2 e^{\lambda t} 
+
+\end{aligned}
+
+\begin{aligned} 
+
+\implies \underbrace{ C e^{\lambda t}}_{>0}  \underbrace{\left( \lambda^2 + \omega^2   \right)}_{\stackrel{!}{=} 0} = 0 
+\end{aligned}
+
+Der zweite Faktor muss 0 sein, da der erste Faktor immer größer null ist.
+
+\begin{aligned} 
+\implies \lambda^2 = -\omega^2
+\end{aligned}
+
+Um die Lösungen für $ \lambda  $ zu finden, müssen wir anscheinend die Wurzel aus einer negativen Zahl ziehen. Das funktioniert nur mit komplexen Zahlen und der imaginären Einheit $ i= \sqrt{-1} $ . Diese können wir aus dem Minuszeichen in der Wurzel herausziehen:
+\begin{aligned} 
+\lambda_{1,2} = \pm \sqrt{(-1)(\omega^2)} \\
+= \pm \sqrt{-1} \sqrt{\omega^2} \\
+= \pm i \omega
+\end{aligned}
+Wir haben zwei Lösungen für $ \lambda  $, d.h. wir erhalten zwei Teillösungen
+\begin{aligned}
+x_1(t) = C_1 e^{i \omega t} \quad , \quad x_2(t) = C_2 e^{- i \omega t}
+\end{aligned}
+Um die allgemeine Lösung für $ x(t) $  zu erhalten, müssen die beiden Teillösungen eine Linearkombination bilden:
+\begin{aligned} 
+x(t) = C_1 e^{i \omega t} + C_2 e^{-i \omega t}
+\end{aligned}
+Die Position der Masse $ x(t) $ muss offensichtlich eine reelle Zahl sein, eine imaginäre Position würde keinen Sinn ergeben. <br/>
+Das heißt wiederum, dass die Summe auf der rechten Seite ebenfalls reell sein muss. 
+<br/>
+Jetzt sehen wir hier die Summe zweier komplexer Zahlen in ihrer jeweiligen Polardarstellung. <br/>
+Damit eine Reelle Zahl herauskommt, müssen die beiden Zahlen zueinander komplex konjugiert sein, damit wir in der komplexen Ebene wieder auf der reellen Zahlengeraden landen. 
+<br/>
+<br/>
+D.h. wir müssen entweder fordern, dass $ C_1 $ und $ C_2 $ reell und gleich groß sind, oder wir fordern, dass $ C_1 $ und $ C_2 $  zueinander komplex konjugierte Konstanten mit gleichem Abstand $ C $ zum Ursprung der komplexen Ebene sind, denn nur dann käme bei der Summe wieder eine reelle Zahl heraus. 
+<br/>
+Würden wir die erste Variante wählen, dann hätten wir keinen zusätzlichen Phasenwinkel, wählen wir jedoch die zweite Variante, dann erhalten wir diesen. Wir wollen die 2. Variante wählen, weil wir für unsere DGL 2. Ordunung eine Lösung mit 2 unbestimmten Konstanten, darunter dem Phasenwinkel, brauchen. 
+<br/>
+D.h. $ C_1 $ und $ C_2 $ sind
+\begin{aligned} 
+C_1 = C e^{i \phi } \quad , \quad C_2 = C e^{-i \phi } = C_1^{*}
+\end{aligned}
+Der Stern * steht für komplexe Konjugation. 
+<br/> 
+<br/>
+Einsetzen:
+\begin{aligned} 
+x(t) = C e^{i \phi } e^{i \omega t} + C e^{-i \phi } e^{-i \omega t} \\
+= C \cdot 2 \cdot \frac{ 1 }{ 2 } \left(  \exp(i(\omega t + \phi )) + \exp(-i(\omega t + \phi )) \right)
+\end{aligned}
+Als letztes definieren wir noch $ A \equiv 2C $ und verwenden
+\begin{aligned} 
+\cos x = \frac{ 1 }{ 2 } \left( \exp(ix) + \exp(-ix)  \right)
+\end{aligned}
+Wir erhalten unsere Lösung
+\begin{aligned} 
+x(t) = A \cos(\omega t + \phi )
+\end{aligned}
+Diese Lösung ist äquivalent zur $ \sin() $- Lösung. Der Phasenwinkel wird um $ \pi / 2 $ verschoben, bleibt aber trotzdem total beliebig. Wir nennen ihn einfach mal $ \phi_{1} $.
+\begin{aligned} 
+x(t) &= A \cos(\omega t + \phi)  \\
+&= A \sin(\omega t + \phi + \frac{ \pi  }{ 2 } ) \\
+&= A \sin(\omega t + \phi_{1})
+\end{aligned}
+
+Damit haben wir dieses Kapitel abgeschlossen. Um Schwingungen voll zu verstehen, sollte man sich noch Gedämpfte, Erzwungene, und Erzwungene Gedämpfte Schwingungen zu Gemüte führen.
+
+</div>

@@ -1,0 +1,11 @@
+
+.mathjaxdiv  {
+    padding-left:10px;padding-right:10px;padding-bottom:20px;
+    font-family: "Times New Roman", Times, serif;
+    font-size:115%;
+    color:#000;
+}
+
+.math {
+    font-size:105%;
+}

@@ -1,0 +1,179 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Elektrostatisches Potential und Energie</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+        \newcommand{\vv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \newcommand{\vvvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \newcommand{\grad}{\text{ grad }}
+        \newcommand{\rot}{\text{ rot  }}
+        \newcommand{\div}{\text{ div  }}
+ \) 
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br /> 
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+Bei einer kontinuierlichen Ladungsverteilung wird die Ladung durch ein Volumenintegral über die Ladungsdichte $ \rho(\vec {r'}) $ geschrieben.
+Das Volumenelement $ dV'  $ werden jeweils mit der lokalen Ladungsdichte am Ort $ \vec {r'} $ multipliziert, und man erhält die Lokale Ladung $ dQ $ .
+<br/>
+Sehr wichtig ist diese Beziehung:
+\begin{aligned}
+\grad f(x_1, x_2, x_3) = \grad \frac{ 1 }{ |\vec {r} - \vec {r_0}| } \quad , \quad \vec {r_0} = const    
+\end{aligned}
+\begin{aligned} 
+
+= \sum_{i}^{}{ \frac{ \partial  }{ \partial x_i } \left( \frac{ 1 }{ |\vec {r} - \vec {r_0}| }    \right) \vec {e_i}}  
+= \sum_{i}^{}{-\frac{ 1 }{ 2 } \frac{ 2(x_i + x_{0i}) }{ |\vec {r} - \vec {r_0}|^3 } \vec {e_i} } = - \frac{ (\vec {r} - \vec {r_0}) }{ |\vec {r} - \vec {r_0}|^3 } 
+\end{aligned}
+<br/>
+\begin{aligned} 
+\vec {E}(\vec {r}) = \frac{ 1 }{ 4 \pi \epsilon_0 } \int_{V}^{}{dV' \rho(\vec {r'}) \frac{ \vec {r} - \vec {r'} }{ |\vec {r} - \vec {r'}|^3 } }  = - \frac{ 1 }{ 4 \pi \epsilon_0 } \int_{V}^{}{dV' \rho(\vec {r'}) \grad_{r} \frac{ 1 }{ |\vec {r} - \vec {r'}| }   }
+\end{aligned}
+$ \grad_{r}   $ ist hier einfach nur der Nabla Operator $ \nabla = (\partial_{x}, \partial_{y}, \partial_{z}) $. Dieser ist weder abhängig von $ V' $ noch von $ \vec {r'} $ . Also können wir ihn vor das Integral ziehen. 
+<br/>
+Das Elektrostatische Potential wird wie folgt definiert:
+\begin{aligned} 
+\phi (\vec {r}) = \frac{ 1 }{ 4 \pi \epsilon_{0} } \int_{V}^{}{dV' \frac{ \rho(\vec {r'}) }{ |\vec {r} - \vec {r'}| } }  
+\end{aligned}
+(Poissonsches Integral)
+
+<br/>
+Das elektrostatische Feld ist also 
+\begin{aligned} 
+\vec {E}(\vec {r}) &=  -\frac{ 1 }{ 4 \pi \epsilon_0 } \int_{V}^{}{dV' \rho(\vec {r'}) \grad_{r} \cdot \frac{ 1 }{ |\vec {r} - \vec {r'}| }   } \\
+&= - \grad_{r} \frac{ 1 }{ 4 \pi \epsilon_0 } \int_{V}^{}{dV' \frac{ \rho(\vec {r'}) }{ |\vec {r} - \vec {r'}| } } \\
+&= - \grad \phi (\vec {r})    
+\end{aligned}
+
+Das Elektrische Feld zeigt also in die Richtung des Gradienten des Potentials, das ist die Richtung, in der das Potential am schnellsten abnimmt.
+
+<br/>
+<br/>
+Für diskrete Punktladungen wird das Integral zur Summe und statt $ dV' \rho(\vec {r'}) $ schreibt man die Ladung $ Q_i $ . Natürlich wird dann auch $ \vec {r'} $ ausgetauscht gegen den Ortsvektor der diskreten Punktladung $ \vec {R_i} $.
+
+<br/>
+Das Potential folgt dem Superpositionsprinzip
+\begin{aligned} 
+\vec {E}(\vec {r}) = \frac{ 1 }{ 4 \pi \epsilon_0 } \sum_{i}^{}{\frac{ Q_i }{ |\vec {r} - \vec {R_i}|^2  } \frac{ \vec {r} - \vec {R_i}  }{ |\vec {r} - \vec {R_i}| }  } 
+\end{aligned}
+Daraus folgt analog dieselbe Beziehung für das Potential
+\begin{aligned} 
+\vec {E}(\vec {r}) = - \grad \phi ( \vec {r}) 
+\end{aligned}
+
+
+<br/>
+<br/>
+<b>Das Elektrostatische Potential ist sehr eng mit der Energie verknüpft</b>.
+
+Bei der Verschiebung einer Ladung innerhalb eines Elektrischen Feldes (erzeugt von anderer Ladung) wird Arbeit aufgewendet. Die Kraft die dabei auf die Probeladung wirkt wird über die Kurve integriert, entlang der die Probeladung verschoben wird. Bei einem konservativen Kraftfeld ist es egal, welcher Weg vom Punkt $ \vec {r_1} $ zum Punkt $ \vec {r_2} $ genommen wird, es wird immer dieselbe Arbeit aufgewandt. Außerdem gilt für geschlossene Kurven, dass die Arbeit in konservativen Feldern gleich Null ist. Denn die Arbeit die aufgewendet wird, um die Ladung von ihrem Ort weg zu transportieren, wird beim Wiederhintransport wieder aufgebraucht von der Arbeit entgegengesetztem Vorzeichens.
+
+Die Elektrostatische Kraft die auf die Probeladung wirkt ist natürlich die Coulombkraft $ \vec {F}(\vec {r}) = q \vec {E} (\vec {r}) $.
+
+Wenn wir die Probeladung entgegengesetzt zum Feld verschieben, dann wenden wir Arbeit auf. Diese Arbeit hat dann immer ein positives Vorzeichen.
+D.h. verschieben wir eine positive Probeladung entgegen eines Feldes, dass von einer positiven Ladung erzeugt wird, dann ist das Produkt $ \vec {F}(\vec {r}) \cdot d \vec {r} $ negativ, da die Vektoren in unterschiedliche Richtungen zeigen.Damit das Arbeitsintegral eine positive Größe ist, muss also noch ein Minuszeichen davor gesetzt werden. Also ist die Definition der Verschiebungsarbeit gegen ein Feld
+\begin{aligned} 
+W = - \int_{\vec {r_1}}^{\vec {r_2}}{\vec {F}(\vec {r}) d \vec {r}} = - q \int_{\vec {r_1}}^{\vec {r_2}}{\vec {E}(\vec {r}) d \vec {r}}  
+\end{aligned}
+Jetzt setzen wir die oben hergeleitete Beziehung für das Elektrische Feld ein:
+\begin{aligned} 
+= q \int_{\vec {r_1}}^{\vec {r_2}}{\grad \phi (\vec {r}) \cdot d \vec {r}  } = q \int_{\vec {r_1}}^{\vec {r_2}}{d \phi (\vec {r})} = q [ \phi(\vec {r_2}) - \phi (\vec {r_1})] = q \cdot U 
+\end{aligned}
+
+$ U  $ ist die Spannung bzw. die Potentialdifferenz zwischen zwei Orten $ \vec {r_1} $ und $ \vec {r_2} $.
+<br/>
+<br/>
+
+<b>Vorschrift zur Berechnung des Potentials</b>
+\begin{aligned} 
+U = [ \phi(\vec {r_2}) - \phi (\vec {r_1})] = - \int_{\vec {r_1}}^{\vec {r_2}}{\vec {E}(\vec {r}) d \vec {r}} 
+\end{aligned}
+bzw. mit der Konvention, dass das Potential im Unendlichen Null ist schreibt man dann
+\begin{aligned} 
+\phi (\vec {r}) = - \int_{\infty }^{\vec {r}}{ \vec {E} (\vec {r'}) d \vec {r'}}
+\end{aligned}
+<br/>
+
+<br/>
+<br/>
+Nebenbei gilt übrigens noch die 2. Maxwellgleichung in Integralform für die Elektrostatik, die wir bereits oben verwendet haben:
+\begin{aligned} 
+\oint_{(F)}^{}{\vec {E}(\vec {r}) \cdot d \vec {r}} = 0 
+\end{aligned}
+
+Diese kann durch den Satz von Stokes in ihre Differentialform gebracht werden:  
+\begin{aligned} 
+\oint_{(F)}^{}{\vec {E} (\vec {r}) \cdot d \vec {r}} = \int_{F}^{}{\rot \vec {E}(\vec {r}) \cdot d \vec {f}} =  0
+\end{aligned}
+
+Wenn der Integrand 0 ist, dann ist das Integral 0.
+
+\begin{aligned} 
+\implies \rot \vec {E} (\vec {r}) = 0 
+\end{aligned}
+
+Alternativ kommt man auch auf diese Form durch direkte Bildung der Rotation des elektrischen Feldes:
+\begin{aligned} 
+\rot \vec {E}(\vec {r}) = - \rot \grad \phi (\vec {r}) = 0 
+\end{aligned}
+
+Die beiden Gausschen Maxwellgleichungen der Elektrostatik sind 
+\begin{aligned} 
+&\epsilon_0 \div \vec {E} = \rho(\vec {r}) \\
+&\rot \vec {E} (\vec {r}) = 0
+\end{aligned}
+
+
+
+
+
+</div>

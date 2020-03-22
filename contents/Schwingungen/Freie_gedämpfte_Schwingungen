@@ -1,0 +1,300 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+//  The document is hidden until MathJax is finished, then
+//   this function runs, making it visible again.
+MathJax.Hub.Queue(function () {
+	document.getElementById("hide_page").style.visibility = "";
+});
+MathJax.Hub.Config({
+	"HTML-CSS": { linebreaks: { automatic: true } },
+	SVG: { linebreaks: { automatic: true } }
+});
+MathJax.Hub.Config({
+	tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Freie gedämpfte Schwingungen</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+
+Wir nehmen an, die Schwingung findet unter Einfluss einer Stokes-Reibungskraft statt. 
+Bei der Stokes-Reibung ist die der Bewegung entgegenwirkende Reibungskraft proportional zum Betrag der Geschwindigkeit der Masse.
+Mit dem Reibungskoeffizienten $ \mu $ und der Geschwindigkeit $ \dot{\vec {r}} $ gilt für die Reibungskraft (Reibung=$ \textbf{F} $riction)
+
+\begin{aligned} 
+ \vec {F_F} = - \mu \dot{\vec {r}} 
+\end{aligned}
+
+Die Rückstellkraft ($ \textbf{R} $estoring Force) der Schwingung folgt dem Hookschen Gesetz. Wir nehmen an, dass das System im Gleichgewicht ist, wenn die Masse sich bei $ \vec {r} = \vec {0} $ befindet.
+
+\begin{aligned} 
+ \vec {F_R} = -k \vec {r}
+\end{aligned}
+
+
+D.h. die Bewegungsgleichung der Masse $ m $ mit der Gesamtkraft $ \vec {F_{net}} $, die $ m $  beschleunigt, lautet
+
+\begin{aligned} 
+ \vec {F_{net}} &= \vec {F_R} + \vec {F_F} \\
+m \ddot{\vec {r}} &= - \mu \dot{\vec {r}} - k \vec {r} 
+\end{aligned}
+
+\begin{aligned} 
+ m \ddot{\vec {r}} + \mu \dot{\vec {r}} + k \vec {r} &= 0 \\
+ \ddot{\vec {r}} + \frac{ \mu }{ m } \dot{\vec {r}} + \frac{ k }{ m } \vec {r} &= 0 
+\end{aligned}
+
+Im eindimensionalen Fall erhalten wir dementsprechend
+
+\begin{aligned} 
+ \ddot{x} + \frac{ \mu  }{ m } \dot{x} + \frac{ k }{ m } x = 0
+\end{aligned}
+ 
+Zum Vergleich: Die DGL der freien ungedämpften Schwingung lautet 
+\begin{aligned} 
+ \ddot{x} + \frac{ k }{ m } x = 0
+\end{aligned}
+
+Wir wollen jetzt natürlich die DGL für den gedämpften Fall lösen.
+Wir sehen, dass wir hier den Exponentialansatz verwenden können.
+\begin{aligned}
+ x(t) = C e^{\lambda t}, \quad C=const, \quad \lambda= const 
+\end{aligned}
+
+Diesen Ansatz differenzieren wir 
+\begin{aligned} 
+ x(t) &= C e^{\lambda t} \\
+ \dot{x(t)} &= C \lambda e^{\lambda t} \\
+\ddot{x(t)} &= C \lambda^2 e^{\lambda t} 
+\end{aligned}
+und die Ergebnisse setzen wir in die Bewegungsgleichung ein
+\begin{aligned} 
+ C \lambda^2 e^{\lambda t} + \frac{ \mu  }{ m } C \lambda e^{\lambda t} + \frac{ k }{ m } C e^{\lambda t} = 0 \\
+\underbrace{C e^{\lambda t}}_{>0}  \left( \lambda^2 + \frac{ \mu  }{ m } \lambda + \frac{ k }{ m }    \right) = 0
+\end{aligned}
+Der erste Faktor ist immer $ >0 $. Damit die Gleichung gilt muss also der 2. Faktor $ 0 $ werden.
+\begin{aligned} 
+ \lambda^2 + \frac{ \mu  }{ m } \lambda + \frac{ k }{ m } = 0 \\
+\implies \lambda_{1,2} = - \frac{ \mu  }{ 2m } \pm \sqrt{\left( \frac{ \mu  }{ 2m }   \right)^2 - \frac{ k }{ m } }
+\end{aligned}
+Jetzt wollen wir die folgenden Abkürzungen für die konstanten Terme verwenden:
+\begin{aligned} 
+ \frac{ \mu  }{ 2m } = \delta \quad \quad \frac{ k }{ m } = \omega_0^2
+\end{aligned}
+Der physikalisch-anschauliche Sinn hinter diesen Abkürzungen wird sich noch herausstellen. Außerdem reduziert sich der Schreibaufwand.
+
+\begin{aligned} 
+\lambda_{1,2} = - \delta \pm \sqrt{\delta^2 - \omega_0^2}  
+\end{aligned}
+Es gibt 2 Lösungen für $ \lambda  $. Um diese DGL 2. Ordnung zu lösen müssen die beiden Teillösungen 
+\begin{aligned} 
+ x_1(t) = C_1 e^{\lambda_1 t} \quad , \quad x_2(t) = C_2 e^{\lambda_2 t}
+\end{aligned}
+zusammen eine Linearkombination bilden:
+\begin{aligned} 
+ x(t) = C_1 e^{\lambda_1 t} + C_2 e^{\lambda_2 t}
+\end{aligned}
+
+Wir unterscheiden nun verschiedene Fälle und Kategorien voneinander. <br/> <br/> 
+Unter die Kategorie$ \textit{ Schwache Dämpfung } $ fallen <br/> 
+(1) $ \textbf{Schwingfall : } \quad \quad  \delta^2-\omega_0^2 < 0  $ <br/>
+(2) $ \textbf{Aperiodischer Grenzfall : } \quad \quad  \delta^2-\omega_0^2 = 0  $ <br/>
+Unter die Kategorie $ \textit{ Starke Dämpfung } $ fällt <br/>
+(3) $ \textbf{Kriechfall : } \quad \quad  \delta^2-\omega_0^2 > 0  $
+<br/>
+<br/>
+Der genaue Grund, warum diese Fälle so genannt werden wird klar, wenn man die Lösungsfunktionen gefunden hat. 
+<br/>
+<br/>
+<br/>
+<br/>
+Wir könnten hier schon festhalten, dass wenn der Radikant positiv, d.h. $ \delta^2 - \omega_0^2 > 0 $ ist, dass dann die Wurzel reell ist und wir für diesen Fall eine reelle Lösung haben. Ebenso im Fall $ \delta^2 - \omega_0^2 = 0 $ haben wir eine reelle Lösung. 
+<br/>
+Diese Lösungen mögen zwar akzeptabel sein, sind aber wesentlich weniger anschaulich als die allgemeine Lösung, die wir jetzt herleiten werden. Außerdem hätten wir den Fall $ \delta^2 - \omega_0^2 < 0 $ damit noch nicht abgedeckt.
+<br/>
+Wir verwenden in den nächsten Schritten komplexe Zahlen verwenden, um dann durch Umformen wieder auf eine Reelle Form der Lösung zu kommen, die sehr anschaulich ist.
+<br/> 
+Wir klammern also das negative Vorzeichen aus und finden die imaginäre Einheit $ i = \sqrt{-1} $ . Außerdem definieren wir $ \omega = \sqrt{\omega_0^2 - \delta^2} $ 
+\begin{aligned} 
+ 
+\lambda_{1,2} = - \delta \pm \sqrt{\delta^2 - \omega_0^2} \\ 
+ = - \delta \pm \sqrt{(-1)(\omega_0^2-\delta^2 )} \\
+ = - \delta \pm i \sqrt{\omega_0^2 -\delta^2} \\
+ = - \delta \pm i \omega 
+\end{aligned}
+
+D.h. wir erhalten 
+\begin{aligned} 
+ \underbrace{x(t)}_{\in \R} = \underbrace{\exp{(-\delta t)}}_{ \in \R}  \left( C_1 \exp{(i \omega t)} +  C_2 \exp{(-i \omega t)}  \right)
+\end{aligned}
+
+Da die Lösung $ x(t) $ reell sein muss (ein Ort im physikalischen Raum muss offensichtlich reell sein) und der erste Faktor reell ist, muss der 2. Faktor ebenfalls reell sein. <br/>
+Wir sehen, dass die Summe im 2. Faktor aus zwei komplexen Zahlen in ihrer Exponentialdarstellung besteht.<br/> <br/>
+$ C_1, \quad  C_2 $  : Abstände zum Ursprung der komplexen Ebene <br/><br/>
+$ \omega t, \quad  -\omega t $ : Winkel zur reellen Zahlengeraden
+<br/>
+<br/>
+Wie wir sehen, haben die beiden komplexen Zahlen denselben Winkel, nur jeweils negativ. D.h. sie sind komplex konjugiert zueinander. Um bei der Addition wieder auf der reellen Zahlengeraden zu landen, müssen die Abstände und die Winkel gleich sein. <br>
+Wir können nun die Konstanten $ C_1 $ und $ C_2 $ aber ebenfalls als komplex ansehen, mit <br/>
+$ C_1 = C e^{i \phi } $ und $ C_2 = C e^{-i \phi } $.
+Dann hätten wir jeweils ein Produkt zweier komplexer Zahlen. Wenn man diese dann addiert addiert, erhält man wiederum die Summe zweier komplexer Zahlen, diesmal erhält man aber zusätzlich einen konstanten Phasenwinkel $ \phi $ . Und egal welchen Wert $ \phi  $ hat, man landet bei der Addition immer auf der reellen Zahlengeraden.
+<br/>
+<img src="/contents/Schwingungen/r_images/complexplane.svg" height="100%"/>
+<br/>
+Durch den Trick, dass man $ C_1  $ und $ C_2 $ als zueinander komplex konjugierte Konstanten betrachten kann, und dann wieder auf der reellen Zahlengeraden landet, bekommt man also einen konstanten Phasenwinkel, der dann in der Lösung auch im Cosinus erscheint und durch Anfangsbedingungen bestimmt werden kann.
+\begin{aligned} 
+x(t) = \exp{(-\delta t)}  \left(C  \exp{(i(\omega t + \phi))} + C \exp{(-i(\omega t + \phi))} \right)
+\end{aligned}
+Es ist immer nachzuprüfen, wie viele unbestimmte Konstanten unsere Lösung hat. Denn die Anzahl der unbestimmten Konstanten muss mit der Ordnung der DGL übereinstimmen. Z.B.: In unserer DGL kommt als höchste Ableitung die 2. Ableitung vor, d.h. man muss 2 mal integrieren, um auf die Lösung zu kommen. Die unbestimmten Konstanten in der Lösung sind dann die beliebigen Integrationskonstanten, die beim Integrieren vorkommen.
+<br/>
+<br/>
+Leicht umgeformt ergibt das
+\begin{aligned} 
+x(t) = \exp{(-\delta t)} C \cdot 2 \cdot \frac{ 1 }{ 2 }  \left( \exp{(i(\omega t + \phi))} + \exp{(-i(\omega t + \phi))} \right)
+\end{aligned} 
+Mit $ A \equiv 2C $ und
+\begin{aligned} 
+\cos{x} = \frac{ 1 }{ 2 } \left( e^{ix} + e^{-ix}   \right)
+\end{aligned}
+folgt die $ \textbf{ Lösung } $ 
+<br/>
+<br/>
+\begin{aligned}
+x(t) = \exp{(-\delta t)} A \cos{\left( \sqrt{\omega_0^2 - \delta^2} t + \phi    \right)} , \quad \sqrt{\omega_0^2 - \delta^2 } \geq 0
+\end{aligned}
+
+<br/>
+<br/>
+<br/>
+
+$ \textit{ Schwache Dämpfung } $: <br/>
+(1) $ \textbf{Schwingfall : } \quad \quad  \delta^2-\omega_0^2 < 0  $ <br/>
+
+<div style="border: 2px solid grey">
+\begin{aligned}
+x(t) = \exp{(-\delta t)} A \cos{\left( \sqrt{\omega_0^2 - \delta^2} t + \phi    \right)}
+\end{aligned}
+</div>
+Die Amplitude nimmt exponentiell mit der Zeit ab, die Schwingung ist dennoch immer vorhanden.
+<br/>
+<br/>
+(2) $ \textbf{Aperiodischer Grenzfall : } \quad \quad  \delta^2-\omega_0^2 = 0  $ <br/>
+\begin{aligned}
+x(t) = A \exp{(-\delta t)}  \cos{\left(  \phi \right)}
+\end{aligned}
+$ \cos \phi  $ ist beliebig und kann in die Amplitude absorbiert werden, $ A_1 \equiv A \cos \phi  $
+\begin{aligned} 
+x(t) = A_1 \exp{(-\delta t)} 
+\end{aligned}
+Hier sehen wir nur ein Problem: Wir haben nur eine ausschlaggebende unbestimmte Konstante, wobei wir doch eigentlich zwei haben müssten (DGL 2. Ordnung). Hätten wir die 2 Anfangsbedingungen $ x(0)=const, \quad \dot{x}(0)=const $ gegeben, könnten wir mit einer davon nichts anfangen. Es ist offensichtlich, dass die Anfangsgeschwindigkeit bei der Form dieser Gleichung keine Rolle spielt, $ A_1 $ wird nur von dem Ort des Starts beeinflusst, $ \delta $ ist vorgegeben und ansonsten gibt es keine weiteren Konstanten. D.h. die Anfangsgeschwindigkeit ist außen vor. Offensichtlicherweise muss diese Lösung also um eine weitere, linear unabhängige Lösung erweitert werden, damit die Anfangsgeschwindigkeit ebenfalls berücksichtigt wird.
+<br/>
+<br/>
+Die Methode dafür heißt "Variation der Konstanten":
+<br/>
+<br/>
+Wir nehmen die unvollständige Teillösung und lassen zu, dass die unbestimmte Konstante eine Funktion von $ t $ sein kann. Wir nennen $ A_{1} \equiv f(t) $ ("variieren" also die Konstante) und schreiben den Ansatz 
+\begin{aligned} 
+x(t) = f(t) \exp(-\delta t)
+\end{aligned}
+Wir differenzieren mit Hilfe der Produktregel und erhalten nach ein wenig Rechnen
+\begin{aligned} 
+\dot{x} = \left( \dot{f} - \delta t   \right) \exp{(-\delta t)} \\
+\ddot{x} = \left(  \ddot{f} - 2 \delta \dot{f} + \delta^2 f \right) \exp(-\delta t)
+\end{aligned}
+Wenn wir die Definition von $ \omega_0^2 $ und $ \delta^2 $ in unsere erste DGL (ganz oben) einsetzen, dann erhalten wir folgende DGL (das hätten wir eigentlich oben schon schreiben können)
+\begin{aligned}
+\ddot{x} + 2 \delta \dot{x} + \omega_0^2 x = 0
+\end{aligned}
+Da im Aperiodischen Grenzfall  $ \delta^2 - \omega_0^2 = 0 $ $ \implies \delta = \omega_0 $ gilt, sieht die DGL in diesem Fall so aus:
+\begin{aligned} 
+\ddot{x} + 2 \delta \dot{x} + \delta^2 x = 0
+\end{aligned}
+
+Wir setzten also $ x $, $ \dot{x} $ und $ \ddot{x} $ ein:
+\begin{aligned} 
+\exp(-\delta t) \left[  \ddot{f} - 2 \delta \dot{f} + 2 \delta \dot{f}  - 2 \delta^2 f + 2 \delta^2 f \right] = \exp(-\delta f) \ddot{f} = 0
+\end{aligned}
+Der erste Faktor ist immer $ > 0 $ , daher muss $ \ddot{f} \stackrel{!}{=} 0 $ sein. 
+<br/>
+Das ist eine Differentialgleichung
+\begin{aligned} 
+ \ddot{f} = 0
+\end{aligned}
+Wir finden die Lösung einfach durch zweimaliges Integrieren:
+\begin{aligned} 
+f(t) = C_3 + C_4 t
+\end{aligned}
+Diese Lösung der "variierten Konstante"  setzen wir dann in den Ansatz ein und erhalten die allgemeine Lösung des Aperiodischen Grenzfalls
+<div style="border: 2px solid grey">
+\begin{aligned} 
+x(t) = C_3 e^{-\delta t} + C_4 t e^{-\delta t}
+\end{aligned}
+</div>
+Nun haben wir 2 Konstanten, die wir gemäß der Anfangsbedingungen bestimmen können.
+
+<br/>
+<br/>
+Beim Aperiodischen Grenzfall tritt keine Schwingung mehr auf und die Dämpfung ist genau so groß, dass die $ x(t) $ Kurve gleichzeitig am schnellsten der $ 0 $ entgegenstrebt. 
+<br/>
+Bei dem Fall einer Anfangsgeschwindigkeit $ \dot{x}(t) \neq 0 $ kann es außerdem zu einem Nulldurchgang kommen.
+<br/>
+<br/>
+$ \textit{ Starke Dämpfung } $: <br/>
+(3) $ \textbf{Kriechfall : } \quad \quad  \delta^2-\omega_0^2 > 0  $
+<br/>
+Hier müssen wir zur ersten Lösung zurückkehren, denn sonst wäre der Radikant negativ
+\begin{aligned} 
+ x(t) = C_1 e^{\lambda_1 t} + C_2 e^{\lambda_2 t}
+\end{aligned}
+
+<div style="border: 2px solid grey">
+
+\begin{aligned}
+ x(t) = \exp{(-\delta t)} \left[  C_1 \exp{(\sqrt{\delta^2 - \omega_0^2} t)} + C_2 \exp{(\sqrt{\delta^2 - \omega_0^2} t)} \right]
+\end{aligned}
+
+</div>
+In diesem Fall strebt $ x(t) $ ebenfalls direkt der $ 0 $ entgegen, ohne zu oszillieren, jedoch geschieht dies langsamer als beim aperiodischen Grenzfall. 
+<br/>
+</div>

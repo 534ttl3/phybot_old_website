@@ -1,0 +1,96 @@
+
+
+		<!-- -------------MATHJAX BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>"Herleitung" Ohmsches Gesetz</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+<br/>
+
+Existiert ein $ \vec {E} $-Feld in einem Leiter, so werden aufgrund der Coulomb-Kraft $ \vec {F}_C = q \vec {E} $ die freien Ladungen in diesem Leiter beschleunigt. Für die Stromdichte gilt daher $ \vec {j} \neq 0 $. Es wird angenommen, dass der Leiter ein ohmscher Leiter ist, d.h. der Strom der Ladungen $ \vec {j}(\vec {r}) $ ist proportional zum $ \vec {E} $-Feld und zeigt in die gleiche Richtung. Die Proportinalitätskonstante wird "elektrische Leitfähigkeit" $ \bar {\sigma}(\vec {r}) $ genannt. Der Kehrwert der elektrischen Leitfähigkeit wird als "spezifischer Widerstand" $ \bar {\rho}(\vec {r}) $ bezeichnet. \begin{equation*}
+\begin{aligned}
+\vec {j}(\vec {r}) = \bar {\sigma}(\vec {r}) \vec {E}(\vec {r})
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\implies \vec {j}(\vec {r}) \bar {\rho}(\vec {r}) = \vec {E}(\vec {r}) = - \nabla \phi (\vec {r}) 
+\end{aligned}
+\end{equation*}
+
+Durch Integration des $ \vec {E} $ -Feldes entlang eines Weges (P1 -> P2 ), entlang dessen sich die freien Ladungen bewegen, erhält man die Spannung $ U_{12} $ als Differenz der Potentiale, die an den jeweiligen Stellen existieren. 
+
+\begin{equation*}
+\begin{aligned}
+\int_{P1}^{P2}{\vec {j}(\vec {r}) \bar {\rho}(\vec {r}) \text{ d} \vec {r}}  = - \int_{P1}^{P2}{\nabla \phi (\vec {r}) \text{ d} \vec {r}} = - \int_{\phi(\vec {r}_1)}^{\phi(\vec {r}_2)}{\text{d} \phi(\vec {r}) } = - (\phi(\vec {r}_2) - \phi(\vec {r}_1)) = \phi(\vec {r}_1) - \phi(\vec {r}_2) \equiv U_{12}
+\end{aligned}
+\end{equation*}
+
+Linke Seite: $ \vec {j}(\vec {r}) || \text{d} \vec {r} \implies  \vec {j}(\vec {r}) \text{d} \vec {r}\equiv j \text{ d} s $. Die Stromladungsdichte sei über den ganzen Weg konstant, sodass $ j \equiv I/S $ mit der Querschnittsfläche des Ladungsstromes S. Es folgt
+
+\begin{equation*}
+\begin{aligned}
+\int_{P1}^{P2}{\vec {j}(\vec {r}) \bar {\rho}(\vec {r}) \text{ d} \vec {r}}  = I \int_{P1}^{P2}{\text{d} s \frac{ \bar {\rho}(\vec {r}) }{ S } } = I \Delta s  \frac{ \bar {\rho}(\vec {r}) }{ S } \equiv I R_{12} = U_{12}
+\end{aligned}
+\end{equation*}
+
+Der Widerstand ist also abhängig vom spezifischen elektrischen Widerstand (Materialkonstante), von der Querschnittsfläche des Ladungsstroms $ S $ und der Länge des Ladungsstroms $ \Delta s $.   
+
+ 
+
+
+
+
+
+</div>

@@ -1,0 +1,177 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Herleitung der Kinematischen Gleichungen</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+        \newcommand{\vv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \newcommand{\vvvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \newcommand{\grad}{\text{grad }}
+        \newcommand{\rot}{\text{rot  }}
+        \newcommand{\div}{\text{div  }}
+ \) 
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br /> 
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+
+<h3>Kinematik (Wikipedia) </h3>
+Die Kinematik (altgriech. κίνημα kinema ‚Bewegung‘, von κινεῖν kinein ‚bewegen‘) ist die Lehre der Bewegung von Punkten und Körpern im Raum, beschrieben durch die Größen Position, Geschwindigkeit und Beschleunigung, ohne die Ursachen der Bewegung (Kräfte) zu betrachten. Die Bewegung ist im Allgemeinen durch Zwangsbedingungen, z. B. die konstante Fadenlänge bei einem Pendel, eingeschränkt. Durch solche kinematischen Bindungen reduziert sich die Anzahl der Freiheitsgrade eines Körpers.
+
+
+<h4>Ort, Geschwindigkeit, Beschleunigung</h4>
+Durchschnittsgeschwindigkeit:
+  \begin{aligned}
+    \bar {v}_x=\frac{ \Delta x }{ \Delta t } 
+  \end{aligned}
+
+Wir lassen $  \Delta t $ gegen 0 laufen, daraus ergibt sich die Geschwindigkeit auf immer kleiner werdenden Intervallen bis hin zur Momentangeschwindigkeit $ v $ als 1. Ableitung des Ortes $ x $.
+
+  \begin{aligned}
+    v_x(t)   = \lim_{\Delta t \rightarrow 0}{\frac{ \Delta x }{ \Delta t } } = \frac{ d }{ dt } x(t) = \frac{ dx }{ dt } = \dot{x} 
+  \end{aligned}
+
+Das gleiche gilt für die Beschleunigung:
+  \begin{aligned}
+    \bar {a}_x = \frac{ \Delta v }{ \Delta t }  \quad \quad \text{(Durchschnittsbeschleunigung)} 
+  \end{aligned}
+  \begin{aligned}
+    a_x(t) &= \lim_{\Delta t \rightarrow 0}{\frac{ \Delta v }{ \Delta t }} = \frac{ d }{ dt } v_x(t) = \frac{ dv_x }{ dt } \\ &=\frac{ d }{ dt } \left( \frac{ d }{ dt } x(t)   \right) = \frac{ d^2 }{ dt^2 } x(t) = \frac{ d^2x(t) }{ dt^2 } = \dot{v}_x = \ddot{x} \quad \quad \text{(Momentanbeschleunigung)}  
+  \end{aligned}
+
+<br/>
+Dies gilt natürlich für vektorielle Größen.
+<br/>
+
+  \begin{aligned}
+    x(t) = |\vec {x}(t)|, v(t) = |\vec {v}(t)|, a(t) = |\vec {a}(t)| \quad .
+  \end{aligned}
+
+Die Integration ist die Umkehrung der Differenziation, deshalb gilt
+
+  \begin{aligned}
+    \text{Ort} & \stackrel{\text{differenzieren} }{\longrightarrow }   &&\text{Geschwindigkeit}  \stackrel{\text{differenzieren} }{\longrightarrow } &&&\text{Beschleunigung} \\   
+     \text{Ort}&  \stackrel{\text{integrieren} }{\longleftarrow }  &&\text{Geschwindigkeit} \stackrel{\text{integrieren} }{\longleftarrow } &&&\text{Beschleunigung}
+\end{aligned}
+
+Wir wollen nun die drei klassischen kinematischen Gleichungen herleiten. 
+<br/>
+Diese gelten für konstante Beschleunigung. 
+<br/>
+Wir starten mit der Beschleunigung und arbeiten uns durch Integration vor zum Ort. 
+<br/>
+Für die Beschleunigung gilt:
+  \begin{aligned}
+    a=\frac{ dv }{ dt } \Rightarrow adt = dv
+  \end{aligned}
+Nun darf man auf beiden Seiten in den entsprechenden Grenzen integrieren. Die Integrationsgrenzen für $ dt $  sind hierbei $ t_0 = 0 $ und $ t_f = t $. Streng mathematisch dürfen die Integrationsgrenzen nicht genauso heißen, wie die Variable nach der integriert wird, trotzdem ist physikalisch diese Schreibweise anerkannt. 
+<br/>
+Integration:
+  \begin{aligned}
+    \int_{t_0}^{t_f}{adt} &= \int_{v_0}^{v_f}{dv} \\
+    a\int_{0}^{t}{dt} &= \int_{v_0}^{v_f}{dv} \\
+    a \left[  t  \right]_{0}^{t} &= \left[  v  \right]_{v_0}^{v_f} \\
+    a((t)-(0)) &= (v_f) - (v_0) \\
+    v_f &= v_0+at 
+  \end{aligned} 
+Dies ist die erste der drei Gleichungen.
+Die zweite bekommt man durch erneute Integration:
+  \begin{aligned}
+    v_f = v_0 +at \Rightarrow \frac{ dx }{ dt } = v_0 + at \Rightarrow dx = (v_0+at) dt
+  \end{aligned}
+  \begin{aligned}
+    \int_{x_0}^{x_f}{dx} &= \int_{0}^{t}{(v_0+at) dt} \\ 
+    \left[  x  \right]_{x_0}^{x_f} &= \left[  v_0t + \frac{ 1 }{ 2 } at^2  \right]_{0}^{t} \\
+    (x_f) - (x_0) &= \left( v_0t + \frac{ 1 }{ 2 } at^2   \right) - (0) \\ 
+    x_f & = x_0 + v_0 t + \frac{ 1 }{ 2 } at^2 
+  \end{aligned}
+Die dritte Gleichung soll unabhängig von der Zeit $ t $ sein. Diese bekommen wir entweder durch Auflösen der ersten Gleichung nach $ t $ und Einsetzen in die zweite Gleichung, oder wir leiten sie mit Integration und einem kleinen Trick her:
+  \begin{aligned}
+    a = \frac{ dv }{ dt } 
+  \end{aligned}
+Nun erweitern wir die rechte Seite mit $ dx $ und sortieren um:
+  \begin{aligned}
+    a = \frac{ dv }{ dx } \underbrace{\frac{ dx }{ dt }}_{v}  
+  \end{aligned}
+Wir wissen aber, dass $ v=\frac{ dx }{ dt }  $ , deshalb schreiben wir
+  \begin{aligned}
+    a = \frac{ dv }{ dx } v
+  \end{aligned}
+oder 
+ \begin{aligned}
+    a dx &= vdv \\
+    \int_{x_0}^{x_f}{adx} &= \int_{v_0}^{v_f}{vdv} \\
+    a[x]_{x_0}^{x_f} &= \left[  \frac{ 1 }{ 2 } v^2  \right]_{v_0}^{v_f} \\
+    a((x_f) - (x_0)) &= \left( \frac{ 1 }{ 2 } v_f^2   \right) - \left( \frac{ 1 }{ 2 } v_0^2   \right) \\
+    2a(x_f-x_0) &= v_f^2 - v_0^2 \\
+    v_f^2 &= v_0^2 + 2a(x_f - x_0) \\
+    v_f^2 &= v_0^2 + 2a \Delta x
+  \end{aligned}
+
+Dies ist die dritte Gleichung, die Gleichung aus der wir $ t $ eliminiert haben. 
+<br/>
+Mit diesen drei Gleichungen lassen sich alle Probleme der klassischen Kinematik lösen.
+
+\begin{aligned}
+  v_f = v_0 + at
+\end{aligned}
+\begin{aligned}
+  x_f = x_0 + v_0 t + \frac{ 1 }{ 2 } at^2
+\end{aligned}
+
+\begin{aligned}
+  v_f^2 = v_0^2 + 2a(x_f-x_0)
+\end{aligned}
+
+
+
+
+</div>

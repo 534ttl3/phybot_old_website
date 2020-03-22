@@ -1,0 +1,133 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+<script type="text/x-mathjax-config">
+//  The document is hidden until MathJax is finished, then
+//   this function runs, making it visible again.
+MathJax.Hub.Queue(function () {
+	document.getElementById("hide_page").style.visibility = "";
+});
+MathJax.Hub.Config({
+	"HTML-CSS": { linebreaks: { automatic: true } },
+	SVG: { linebreaks: { automatic: true } }
+});
+MathJax.Hub.Config({
+	tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+</script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Transversalität Elektromagnetischer Wellen</h2> 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+Die folgende Gleichung besagt, dass das $ \vec {B}- $Feld der Welle senkrecht auf dem Wellenvektor $ \vec {k} $ und dem elektrischen Feld $ \vec {E} $ steht (rechtshändiges Dreibein):
+\begin{aligned}
+ \vec {B} = \frac{ 1 }{ \omega } \vec {k} \times \vec {E}
+\end{aligned}
+ 
+Diese Beziehung gilt es nun zu zeigen. <br/> 
+
+(I) Ausrechnen von $ \nabla \times  \vec {E} $ <br/> 
+(II) Ausrechnen von $ \frac{\partial \vec {B}}{\partial t} $ <br/>
+(III) Faradays Induktionsgesetz verwenden $ \nabla \times  \vec {E} = -  \frac{\partial \vec {B}}{\partial t}$ <br/>
+<h2>(I)</h2>
+Das Elektrische Feld ist gegeben durch 
+\begin{aligned}
+ \vec {E} = \vvv{ E_{0x} \\ E_{0y} \\ E_{0z} }  e^{i(\vec {k} \vec {r} - \omega t)}, \quad \vec {r} = \vvv{ x \\ y \\ z } 
+\end{aligned}
+dann ist
+\begin{aligned} 
+\nabla \times \vec {E} = \vvv{ \frac{\partial }{\partial x} 
+ \\ \frac{\partial }{\partial y} 
+ \\ \frac{\partial }{\partial z} 
+ } \times \vvv{ E_{0x} \\ E_{0y} \\ E_{0z} } e^{i(\vec {k} \vec {r} - \omega t)}
+\end{aligned}
+Das Ergebnis komponentenweise ausrechnen: <br/>
+hier wird nur die x1-Komponente vorgeführt, für x2 und x3 ist die Vorgehensweise analog:
+\begin{aligned} 
+\left[  \nabla \times \vec {E}  \right]_{1}&=\frac{\partial }{\partial y} \left( E_{0z} e^{i(\vec {k} \vec {r} - \omega t)}   \right)
+- \frac{\partial }{\partial z} \left( E_{0y} e^{i(\vec {k} \vec {r} - \omega t)}   \right) \\
+&= E_{0z} \frac{\partial }{\partial y} \left( e^{i(\vec {k} \vec {r} - \omega t)}   \right)
+- E_{0y}\frac{\partial }{\partial z} \left(  e^{i(\vec {k} \vec {r} - \omega t)}   \right) 
+\end{aligned}
+Mit
+\begin{aligned} 
+& \frac{\partial }{\partial y} \left( e^{i(\vec {k} \vec {r} - \omega t)}   \right) \\
+&=\frac{\partial }{\partial y} \left( e^{i(k_x x + k_y y + k_z z - \omega t)}   \right) \\
+&= ik_y \cdot e^{i(\vec {k}\vec {r} - \omega t)}
+\end{aligned}
+
+gilt
+
+\begin{aligned} 
+\left[  \nabla \times \vec {E}  \right]_{1}&= ik_y E_{0z} e^{i(\vec {k}\vec {r} - \omega t)}- ik_z E_{0y} e^{i(\vec {k}\vec {r} - \omega t)}  \\
+&=  e^{i(\vec {k}\vec {r} - \omega t)} \cdot \left( ik_y E_{0z} - ik_z E_{0y}   \right) \\
+&= \left[   \left[ \vvv{ ik_x \\ ik_y \\ ik_z } \times \vvv{ E_{0x} \\ E_{0y} \\ E_{0z} }  \right] e^{i(\vec {k}\vec {r} - \omega t)}  \right]_{1} \\
+&= \left[ i \vec {k} \times \vec {E}\right]_1
+\end{aligned}
+
+Insgesamt gilt also
+\begin{aligned} 
+\nabla \times \vec {E} = i \vec {k} \times \vec {E}
+\end{aligned}
+
+<h2>(II)</h2>
+\begin{aligned} 
+\frac{\partial \vec {B}}{\partial t} &= \frac{\partial }{\partial t} \left( \vec {B_0} e^{i(\vec {k}  \vec {r}- \omega t)}   \right) \\
+&= - \vec {B_0} i \omega  e^{i(\vec {k}  \vec {r}- \omega t)} \\
+&= -i \omega \vec {B}
+\end{aligned}
+
+<h2>(III)</h2>
+Faradays Induktionsgesetz:
+\begin{aligned}
+\nabla \times \vec {E} = - \frac{\partial \vec {B}}{\partial t} 
+\end{aligned}
+
+Die Ergebnisse aus (I) und (II) einsetzen:
+\begin{aligned} 
+i \vec {k} \times \vec {E} &= -i \omega \vec {B} \\
+\vec {k} \times \vec {E} &= \omega \vec {B} \\
+\vec {B} &= \frac{ 1 }{ \omega } \vec {k} \times \vec {E} 
+\end{aligned}
+
+$ \vec {B} $ steht also immer senkrecht auf $ \vec {k} $ und $ \vec {E} $. <br/>
+Daraus kann man nun folgern, dass elektromagnetische Wellen transversal laufen.
+
+
+</div>

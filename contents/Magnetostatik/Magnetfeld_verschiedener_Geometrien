@@ -1,0 +1,116 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Magnetfeld eines endlichen, geraden Leiterabschnitts</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+<br/>
+<img src="/contents/_images/magnetfeldendlicherleiterabschnitt.png" style="max-height:350px;width:auto; "/>
+<br/>
+Wenn P in der x-y-Ebene liegt, dann hat das $ \vec {B} $ -Feld am Punkt P ausschließlich eine z-Komponente. $ \vec {r}_P $ ist der Ortsvektor des Punktes P, wo das B-Feld berechnet wird, $ \vec {r}' $ ist der Ort des infinitesimalen Leiterabschnittes, der den infinitesimalen Beitrag $ \text{ d} \vec {B}(\vec {r}_P) $ zum Gesamtmagnetfeld am Ort $ \vec {r}_P $ generiert.
+
+\begin{aligned} \text{d}\vec {B}(\vec {r}_P) = \frac{ \mu_0 }{ 4 \pi  } I \text{ d} \vec {l} \times  \frac{ \vec {r}_P - \vec {r}' }{ |\vec {r}_P - \vec {r}'|^3 } = \frac{ \mu_0 }{ 4 \pi  } I \text{ d} x \frac{ 1}{ |\vec {r}_P - \vec {r}'|^2 } \cdot \vec {e}_x \times  \vec {e}_{r_P-r'}
+\end{aligned} 
+
+\begin{aligned} 
+ |\vec {r}_P-\vec {r}'| \text{ umdefinieren: } r \equiv |\vec {r}_P-\vec {r}'| \quad , \quad \vec {e}_x \times  \vec {e}_{r_P-r'} = \sin{\phi} \text{ }   \vec {e}_z \text{ , da $ \vec {e}_{r_P-r'} $ in der x-y-Ebene liegt } 
+\end{aligned}
+
+\begin{aligned}
+ \text{d}\vec {B}(\phi ) = \frac{ \mu_0 }{ 4 \pi  }  \frac{ I \text{ d} x }{ r^2 } \cdot \sin \phi \text{ } \vec {e}_z 
+\end{aligned}
+
+ Das Problem wird einfacher wenn der Winkel $ \theta = 180^\circ - \phi = \pi - \phi $ eingeführt wird. 
+\begin{aligned} 
+ \text{ d} B_z (\theta) = \frac{ \mu_0 }{ 4 \pi  } \frac{ I \text{ d} x }{ r^2 } \cos \theta 
+\end{aligned}
+Das Ziel ist dieser Aufgabe ist es, das Magnetfeld am Punkt P in Abhängigkeit zweier Winkel $ \theta_{1}, \theta_{2} $ auszudrücken, wobei zuerst ein Zusammenhang zwischen $ \theta, x $ und $ r $ gefunden werden muss, um dann durch Integration der $ \text{d} B_z(\theta ) $ das Magnetfeld $ B_z(\theta_{1}, \theta_{2}) $ zu erhalten. 
+<br/> 
+Es kann folgender Zusammenhang gefunden werden:
+\begin{aligned} 
+x = r_{\perp } \tan \theta
+\end{aligned}
+Ableiten auf beiden Seiten ergibt
+\begin{aligned} 
+\text{d} x = r_{\perp } \sec^2 \theta \text{ d} \theta = r_{\perp } \frac{ r^2 }{ r_{\perp }^2 } \text{ d} \phi =  r_{\perp } \frac{ r^2 }{ r_{\perp } } \text{ d} \phi \quad \text{mit $ \sec \theta = r/r_{\perp } $ } 
+\end{aligned}
+Einsetzen von $ \text{d} x $ liefert
+\begin{aligned} 
+\text{d} B_z = \frac{ \mu_0 }{ 4 \pi  } \frac{ I }{ r^2 } \frac{ r^2 \text{ d}  \theta  }{ r_{\perp } } \cos \theta= \frac{ \mu_0 }{ 4 \pi } \frac{ I }{ r_{\perp } } \cos \theta \text{ d} \theta
+\end{aligned}
+Durch Integration in den Grenzen von $ \theta_1, \theta_2 $ wird $ B_z $ berechnet. So gut wie alle Größen sind konstant und können vor das Integral gezogen werden.
+\begin{aligned} 
+B_z = \frac{ \mu_0 }{ 4 \pi  } \frac{ I }{ r_{\perp } } \int_{\theta_1}^{\theta_2}{\cos \theta \text{ d} \theta} 
+\end{aligned}
+
+
+<div style="border: 2px solid grey; padding:10px;">
+\begin{aligned}
+B_z = B = \frac{ \mu_0 }{ 4 \pi  } \frac{ I }{ r_{\perp } } (\sin \theta_2 - \sin \theta_1)
+\end{aligned}
+Richtung: Rechte-Hand-Regel
+</div>
+<br/>
+Das $ \vec {B} $ -Feld eines einseitig unendlich langen stromdurchflossenen Leiters, kann hieraus berechnet werden, indem $  \theta_2 = 90^\circ$ oder $  \theta_1 = 90^\circ $ gesetzt werden. Für $ \theta_2=90^\circ, \theta_1 = 0^\circ $ ergibt sich z.B.:
+\begin{aligned} 
+B(r_\perp)  = \frac{ \mu_0 }{ 4 \pi  } \frac{ I }{ r_{\perp } } 
+\end{aligned}
+<br/>
+Für $ \theta_1 = -90^\circ, \theta_2 = 90^\circ $ gilt für das Magnetfeld eines unendlich langen, geraden, stromdurchflossenen Leiters im Abstand $ r_{\perp } $ :
+\begin{aligned} 
+B(r_\perp) = \frac{ \mu_0 }{ 2 \pi  } \frac{ I }{ r_\perp  } 
+\end{aligned}
+
+</div>

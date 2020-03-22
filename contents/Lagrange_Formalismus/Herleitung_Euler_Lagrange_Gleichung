@@ -1,0 +1,142 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+<script type="text/x-mathjax-config">
+//  The document is hidden until MathJax is finished, then
+//   this function runs, making it visible again.
+MathJax.Hub.Queue(function () {
+	document.getElementById("hide_page").style.visibility = "";
+});
+MathJax.Hub.Config({
+	"HTML-CSS": { linebreaks: { automatic: true } },
+	SVG: { linebreaks: { automatic: true } }
+});
+MathJax.Hub.Config({
+	tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+</script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv" style="font-family: "Times New Roman", Georgia, Serif;">
+
+
+							<h2>Herleitung der Euler-Lagrange Gleichung (Lagrange-Gleichung 2. Art)</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+Die Euler-Lagrange-Gleichung ist eine Differentialgleichung 2. Grades einer Funktion $ F(y(x), y', x) $, die sich für eine infinitesimale Variation $ \delta I $  des Integrals $ I = \int_{x_S}^{x_E}{F dx} $ ergibt, wenn dieses Integral stationär ist und die Variationsfunktion an Anfang und Ende Null ist , d.h. wenn gilt
+\begin{aligned}
+\delta I = \delta \int_{x_S}^{x_E}{F dx} = 0, \quad \delta I(x_S) = \delta I(x_E) = 0
+\end{aligned}
+
+Zunächst müssen wir uns jedoch mit der Variation vertraut machen. <br/>
+Unter einer Variation versteht man das Transformieren einer Ausgangsfunktion durch Addition einer infinitesimalen Variationsfunktion. <br/>
+Zum Beispiel ist
+\begin{aligned} 
+  \delta( g(x_1, x_2, x_3)) = \delta g 
+\end{aligned}
+ die infinitesimale Variation, die auf $ g $ addiert wird. Wenn so an der Funktion $ g(x_1, x_2, x_3) $ "gerüttelt" wird, dann wird imiplizit an den Parametern, von denen die Funktion abhängt gerüttelt, d.h. jeder Parameter $ x_i $ von $ g(x_1, x_2, x_3, ...) $ bekommt seine eigene Variation $ \delta x_i $ : <br/>
+Also gilt z.B. für $ x_i $ mit  $  i=1,2,3 $ :
+ \begin{aligned} 
+ \delta g(x_1, x_2, x_3) = g(x_1 + \delta x_1, x_2 + \delta x_2, x_3 + \delta x_3) - g(x_1, x_2, x_3)
+\end{aligned}
+ 
+
+Nun, in dieser Form kann man damit noch recht wenig anfangen. Wir führen deshalb die folgende Taylorentwicklung aus ( $ \delta x_i $- Terme mit Ordnung größer oder gleich 2 verschwinden, das Quadrat einer infinitesimalen Zahl ist "so klein", dass diese Terme zu vernachlässigen sind) :
+
+\begin{aligned}
+ g(x_1 + \delta x_1, x_2 + \delta x_2, x_3 + \delta x_3) = g(x_1, x_2, x_3) +  \frac{ \partial g }{\partial  x_1 } \delta x_1+ \frac{ \partial g }{\partial x_2 } \delta x_2 + \frac{ \partial g }{\partial  x_3 } \delta x_3 + \underbrace{O(\delta x_1^2)}_{=0} +\underbrace{O(\delta x_2^2)}_{=0} + \underbrace{O(\delta x_3^2)}_{=0}
+\end{aligned}
+Durch subtrahieren von $ g(x_1, x_2, x_3) $ auf beiden Seiten ergibt sich 
+\begin{aligned} 
+ \delta g(x_1, x_2, x_3)  =  \frac{ \partial g }{\partial  x_1 } \delta x_1+ \frac{ \partial g }{\partial x_2 } \delta x_2 + \frac{ \partial g }{\partial  x_3 } \delta x_3
+\end{aligned}
+
+Hier sieht man die Analogie zum totalen Differenzial $ dg $ :
+\begin{aligned} 
+  dg(x_1, x_2, x_3) = \frac{ \partial g }{\partial  x_1 } dx_1+ \frac{ \partial g }{\partial x_2 } dx_2 + \frac{ \partial g }{\partial  x_3 } d x_3
+\end{aligned}
+
+Durch die Taylorentwicklung konnten wir also zeigen, dass 
+\begin{aligned} 
+  \frac{ dg(x)}{ dx } = \frac{ \delta g(x)  }{ \delta x  }   
+\end{aligned}
+ 
+
+Damit ist ein wichtiger Schritt getan.
+<br/><br/>
+Machen wir weiter mit der  Variation des Integrals: 
+\begin{aligned} 
+ \delta I = \delta \int_{x_S}^{x_E}{F(y(x), y', x) dx} = \int_{x_S}^{x_E}{ \delta F(y(x), y', x) dx} \\
+= \int_{x_S}^{x_E}{ \left[  F(y(x)+\delta y, y' + \delta y' , x + \delta x)  - F(y(x), y', x)   \right] dx} \\
+= \int_{x_S}^{x_E}{\left[  \frac{\partial F}{\partial y } \delta y + \frac{\partial F}{\partial y' } \delta y' + \frac{\partial F}{\partial x } \delta x   \right]dx} 
+\end{aligned}
+Den 2. Summanden integrieren wir separat. Zur Erinnerung: $ \delta I(x_S)=\delta I(x_E) = 0$ . Daher gilt dies auch für die Parameter $ y  $ und $  y'  $, die beide potentiell von $ x $ abhängig sein können.   
+<br/>
+Partielle Integration des 2. Summanden: 
+\begin{aligned} 
+\int_{x_S}^{x_E}{\frac{\partial F}{\partial y'} \delta y' dx} = \underbrace{\left[ \frac{\partial F}{\partial y'} \delta y'   \right]_{x_S}^{x_E}}_{=0 \text{, da } \delta y'(x_S) =\delta y'(x_E) = 0 }  - \int_{x_S}^{x_E}{ \frac{ d }{ dx } \left( \frac{\partial F}{\partial y'} \right) \delta y dx}  
+\end{aligned}
+Der rechte Term sieht schon stark nach Euler-Lagrange Gleichung aus ^^.
+<br/>
+Zurück zum Variationsintegral: durch Einsetzen ergibt sich
+\begin{aligned} 
+\delta I = \int_{x_S}^{x_E}{\left[  \frac{\partial F}{\partial y } \delta y- \frac{ d }{ dx } \left( \frac{\partial F}{\partial y'} \right) \delta y  + \frac{\partial F}{\partial x } \delta x   \right]dx} \\
+= \int_{x_S}^{x_E}{\left[  \left( \frac{\partial F}{\partial y } - \frac{ d }{ dx } \left( \frac{\partial F}{\partial y'} \right)    \right)\delta y  + \frac{\partial F}{\partial x } \delta x   \right]dx} = 0
+
+\end{aligned}
+
+$ \delta y $ und $ \delta  x $ sind beliebig, d.h., damit diese Gleichung erfüllt ist, muss auf jeden Fall der erste Summand gleich Null sein, was die Euler-Lagrange-Gleichung liefert.<br/>
+Typische Anwendungen der Euler-Lagrange-Gleichungen sind Probleme in der Mechanik. Dort gilt der Energieerhaltungssatz, wobei die Funktion $ F = L = T - V $ die Lagrangefunktion, also die Differenz der kinetischen minus der potentiellen Energie, ist. Wenn die Energie sich zeitlich nicht ändert, also erhalten ist und
+\begin{aligned} 
+\frac{\partial L}{\partial t} = 0 \quad , 
+\end{aligned}
+dann würde sogar der zweite Summand im Integral wegfallen.
+<br/>
+<br/>
+In jedem Fall gilt die Euler-Lagrange Gleichung:
+\begin{aligned} 
+\frac{ d }{ dx } \frac{\partial F}{\partial y'} - \frac{\partial F}{\partial y} = 0
+
+\end{aligned}
+
+<br/>
+
+<br/>
+<br/>
+<br/>
+<h4> tl;dr: </h4> Sehr viele elbische Schriftzeichen
+
+
+</div>

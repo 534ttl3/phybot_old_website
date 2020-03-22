@@ -1,0 +1,138 @@
+
+
+		<!-- -------------MATHJAX BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	
+	<div class="mathjaxdiv">
+
+
+<h2>Punktladung vor dielektrischer Grenzfläche</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \newcommand{\div}[1]{\text{div }#1}
+        \newcommand{\rot}[1]{\text{rot }#1}
+        \newcommand{\grad}[1]{\text{grad }#1}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+Eine Punktladung $ q $  befindet sich in Zylinderkoordinaten bei $ (z=d, \rho = 0) $. Die Ebene $ z=0 $ teilt den Raum in 2 Halbräume auf, die jeweils mit einem linearen, isotropen Dielektrikum unterschiedlicher Permittivitätszahl ausgefüllt sind. $ q $ befindet sich in Halbraum 1 ($ z>0, \epsilon_1 $). Die Effekte, die die dielektrische Grenzfläche auf das Potential bzw. das $ \vec {E} $-Feld im gesamten Raum hat kann durch eine virtuelle Ladung $ q' $  bei $ ( z = -d, \rho = 0 ) $ simuliert werden. $ q' $ liegt der Punktladung $ q $ gegenüber in Halbraum 2 $ ( z<0, \epsilon_2 ) $. Im Folgenden wird das Potential im gesamten Raum berechnet, wodurch sich auch wiederum das $ \vec {E} $-Feld berechnen lässt mit $ \vec {E} = - \nabla \phi  $. 
+<br/>
+Dies ist ein Dirichlet-Randwertproblem mit der Wahl, dass das Potential im Unendlichen 0 ist  $ (\phi ( r= \infty ) = 0) $. Für eine Punktladung, die sich am Punkt $ \vec {r}' $ befindet gilt für das Potential am Punkt $ \vec {r} $:
+\begin{equation*}
+\begin{aligned}
+\phi (\vec {r}, \vec {r}') &= - \int_{}^{}{\vec {E} \cdot \text{d} \vec {s}} \\
+&= \frac{ 1 }{ 4 \pi \epsilon_0 \epsilon_r } \frac{ Q  }{ |\vec {r} - \vec {r}'| } + \phi_0 \\ 
+\end{aligned}
+\end{equation*}
+
+Da die Dirichlet-Randbedingung $ \phi ( r= \infty ) = 0 $ gilt, muss für den Grenzwert $ |\vec {r}| = r \rightarrow \infty  $ also $ \phi_0=0 $ sein. 
+<br/>
+Das Potential in Halbraum 1 ist setzt sich zusammen aus dem Potential der realen Punktladung $ q $ und dem Potential der virtuellen Punktladung $ q' $, die die Effekte der dielektrischen Grenzfläche für Halbraum 1 simuliert: 
+\begin{equation*}
+\begin{aligned}
+\phi_1 = \frac{ 1 }{ 4 \pi \epsilon_1 } \left( \frac{ q }{ \sqrt{\rho^2 + (d-z)^2} } + \frac{ q' }{ \sqrt{\rho^2 + (d+z)^2} } \right)
+\end{aligned}
+\end{equation*}
+
+$ q' $ simuliert nur die Effekte der dielektrischen Grenzfläche für Halbraum 1. Da aber die Effekte der dielektrischen Grenzfläche auch für Halbraum 2 gefunden werden sollen, wird wieder eine virtuelle Punktladung $ q'' $, diesmal bei $ (z=d, \rho=0) $ platziert. Für das Potential in Halbraum 2 gilt: 
+\begin{equation*}
+\begin{aligned}
+\phi_2 = \frac{ 1 }{ 4 \pi \epsilon_2 } \left( \frac{ q'' }{ \sqrt{\rho^2 + (d-z)^2} } \right)
+\end{aligned}
+\end{equation*}
+
+Weitere Randbedingungen in diesem Problem sind, dass die Tangentialkomponente $ E_{||} $ des $ \vec {E} $-Feldes und die Normalkomponente  $ D_{\perp } $ des $ \vec {D} $-Feldes an der Grenzfläche $ (z=0) $ stetig sind.
+\begin{equation*}
+\begin{aligned}
+(i) \quad & E_{1, ||} (z=0) = E_{2, ||} (z=0)  \\
+(ii) \quad  & D_{1, \perp } (z=0) = D_{2, \perp } (z=0)
+\end{aligned}
+\end{equation*}
+Die Schreibweise $ E_{1, ||} (z=0) $  ist übrigens gleichbedeutend mit der Schreibweise $ E_{1, ||} |_{z=0} $. 
+<br/>
+Allgemein gilt $ \vec {E} = - \nabla \phi $. Da wir uns nicht für die gesamte dreidimensionale Ableitung $ \nabla $ des Potentials interessieren, sondern nur für die Ableitung in tangentialer Richtung, die uns dann die Tangentialkomponente des $ \vec {E} $-Feldes als Skalar liefert, schreiben wir die Tangentialableitung als $ \frac{\partial \phi }{\partial \rho }$. Aus $ (i) $ folgt: 
+\begin{equation*}
+\begin{aligned}
+\left. E_{1, ||} \right|_{z=0} &= \left. E_{2, ||} \right|_{z=0}  \\
+\left. \frac{\partial \phi_1}{\partial \rho } \right|_{z=0} &=  \left. \frac{\partial \phi_2}{\partial \rho } \right|_{z=0} \\ 
+\left. \frac{ 1 }{ 4 \pi \epsilon_1 } \frac{\partial }{\partial \rho } \left( \frac{ q }{ \sqrt{\rho^2 + (d-z)^2} } + \frac{ q' }{ \sqrt{\rho^2 + (d+z)^2} }   \right) \right|_{z=0} &= \left. \frac{ 1 }{ 4 \pi \epsilon_2 } \frac{\partial }{\partial \rho } \left( \frac{ q'' }{ \sqrt{\rho^2 + (d-z)^2} }  \right) \right|_{z=0} \\
+\frac{\partial }{\partial \rho } \left( \frac{ q }{ \sqrt{\rho^2 + d^2} } + \frac{ q' }{ \sqrt{\rho^2 + d^2} } \right)  &=  \frac{ \epsilon_1 }{ \epsilon_2 } \frac{\partial }{\partial \rho } \left( \frac{ q'' }{ \sqrt{\rho^2 + d^2} }  \right) \\ 
+(q+q'') \frac{\partial }{\partial \rho }  \left( \frac{ 1 }{ \sqrt{\rho^2 + d^2} }   \right) &= \frac{ \epsilon_1 }{ \epsilon_2 } q'' \frac{\partial }{\partial \rho } \left( \frac{ 1 }{ \sqrt{\rho^2 + d^2} }    \right) \\
+q + q' &= \frac{ \epsilon_1 }{ \epsilon_2 } q''
+\end{aligned}
+\end{equation*}
+
+Aus $ (ii) $ folgt analog (hier wird also nur die Richtungsableitung in z-Richtung betrachtet):
+\begin{equation*}
+\begin{aligned}
+D_{1, \perp } |_{z=0} &= D_{2, \perp } |_{z=0} \\
+\epsilon_1 \left. \frac{\partial \phi_1}{\partial z}  \right|_{z=0} &= \epsilon_2 \left. \frac{\partial \phi_2}{\partial z}   \right|_{z=0} \\
+\dots  &= \dots \\
+q-q' &= q''
+\end{aligned}
+\end{equation*}
+
+Auflösen ergibt:
+\begin{equation*}
+\begin{aligned}
+q' &= \frac{ \epsilon_1 - \epsilon_2 }{ \epsilon_1 + \epsilon_2 } q\\
+q'' &= \frac{ 2 \epsilon_2 }{ \epsilon_1 + \epsilon_2 }  
+\end{aligned}
+\end{equation*}
+
+Einsetzten $ q', q'' $ in $ \phi_1 $ bzw. $ \phi_2 $ ergibt:
+\begin{equation*}
+\begin{aligned}
+\phi(\rho, z) = \begin{cases} 
+\frac{ q }{ 4 \pi \epsilon_1 } \left( \frac{ 1 }{ \sqrt{\rho^2 + (d-z)^2} } + \frac{ \epsilon_1 - \epsilon_2 }{ \epsilon_1 + \epsilon_2 } \cdot \frac{ 1 }{ \sqrt{\rho^2 + (d+z)^2} }  \right) , & z>0 \\
+\frac{ 2q }{ \epsilon_1 + \epsilon_2 } \cdot \frac{ 1 }{ \sqrt{\rho_2 + (d-z)^2} } , & z<0
+\end{cases}
+\end{aligned}
+\end{equation*}
+
+Sinnvoll wäre es jetzt noch, das $ \vec {E} $-Feld zu berechnen und zu plotten und die Übergangseffekte an der dielektrischen Grenzfläche für verschiedene $ \epsilon_1 , \epsilon_2 $ zu diskutieren. 

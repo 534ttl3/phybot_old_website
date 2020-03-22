@@ -1,0 +1,132 @@
+
+
+		<!-- -------------MATHJAX BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+		<script type="text/x-mathjax-config">
+			//  The document is hidden until MathJax is finished, then
+			//   this function runs, making it visible again.
+			MathJax.Hub.Queue(function () {
+			  document.getElementById("hide_page").style.visibility = "";
+			});
+			MathJax.Hub.Config({
+			 "HTML-CSS": { linebreaks: { automatic: true } },
+			 SVG: { linebreaks: { automatic: true } }
+			});
+			MathJax.Hub.Config({
+			 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}  
+			});
+
+  			MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	
+	<div class="mathjaxdiv">
+
+
+<h2>Herleitung der Kirchhoffschen Gesetze aus den Maxwellgleichungen</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \newcommand{\div}[1]{\text{div }#1}
+        \newcommand{\rot}[1]{\text{rot }#1}
+        \newcommand{\grad}[1]{\text{grad }#1}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+<h2>Herleitung der Knotenregel</h2>
+Das Ampere-Maxwellsche Druchflutungsgesetz (4. MWGL) besagt, dass durch eine Stromdichte $ \vec {j} $  und durch die zeitliche Änderung der elektrischen Flussdichte $ \frac{\partial \vec {D}}{\partial t}  $ (=Maxwellscher Verschiebungsstrom) ein magnetisches Wirbelfeld entsteht:
+\begin{equation*}
+\begin{aligned}
+\rot \vec {H} = \vec {j} + \frac{\partial \vec {D}}{\partial t} 
+\end{aligned}
+\end{equation*}
+Für die typischen Anwendungsfälle der Knotenregel gilt $ \vec{j} >>  \frac{\partial \vec {D}}{\partial t} \implies \vec {j} + \frac{\partial \vec {D}}{\partial t} \approx \vec {j} $.
+Wird auf beiden Seiten die Divergenz gebildet, so gilt mit $ \div  \rot (...) = 0 $ :
+\begin{equation*}
+\begin{aligned}
+0 = \div  \vec {j}
+\end{aligned}
+\end{equation*}
+
+Integration über ein Volumen $ V $ liefert mit dem Gausschen Integralsatz $ \int_{V}^{}{\div \vec {f} dV} = \oint_{(V)}^{}{\vec {f} d \vec {A}}  $:
+\begin{equation*}
+\begin{aligned}
+\int_{V}^{}{ \div \vec {j} dV} &= \oint_{(V)}^{}{ \vec {j} d \vec {A}} \\
+&= 0
+\end{aligned}
+\end{equation*}
+
+Durch die das Volumen des Knotenpunktes umrandende geschlossene Fläche fließen Ströme, sodass der Gesamtfluss der gerichteten Stromdichte $ \vec {j} $ durch die Fläche(n) 0 ist. Die vereinfachte Form dieser Aussage ist die Kirchhoffsche Knotenregel, wobei es egal ist, ob die in den Knoten hineinfließenden Ströme und die herausfließenden Ströme positiv oder negativ gezählt werden, die Vorzeichenkonvention muss nur beibehalten werden. Üblich ist es, dem hineinfließenden Strom ein positives Vorzeichen zu geben, und den herausfließenden Strom negativ zu zählen. Im Integral oben zeigt der Normalenvektor der Fläche ($ \propto d \vec {A} $) gemäß Konvention nach außen, weshalb der einkommende Stromdichtevektor antiparallel zu $ d \vec {A} $ steht und der einkommende Strom somit ein negatives Vorzeichen erhalten könnte. Die Knotenregel gilt trotzdem für beide, positive und negative Zählweisen der ein- und austretenden Ströme.   
+\begin{equation*}
+\begin{aligned}
+\implies I_{i} = 0 
+\end{aligned}
+\end{equation*}
+
+
+<h2>Herleitung der Maschenregel</h2>
+Das Induktionsgesetz (3. MWGL) sagt aus, dass ein sich zeitlich änderndes Feld der magnetischen Flussdichte $ \vec {B} $ ein elektrisches Wirbelfeld erzeugt. 
+\begin{equation*}
+\begin{aligned}
+\rot \vec {E} = - \frac{\partial \vec {B}}{\partial t} 
+\end{aligned}
+\end{equation*}
+
+Integration über eine Fläche $ \vec {A} $ ergibt mit dem Stokeschen Integralsatz $ \int_{A}^{}{\rot \vec {f} d \vec {A}} = \oint_{(A)}^{}{ \vec {f} d \vec {s}} $ und dem magnetischen Fluss $ \phi $ durch $ \vec {A} $ : 
+
+\begin{equation*}
+\begin{aligned}
+\int_{A}^{}{\rot \vec {E} d \vec {A}} &= \oint_{(A)}^{ }{\vec {E} d \vec {s}}  \\
+&= - \frac{\partial }{\partial t} \int_{A}^{}{\vec {B} d \vec {A}} \\ 
+&= - \dot{\phi }  
+\end{aligned}
+\end{equation*} 
+
+Das geschlossene Spannungsintegral $ \oint_{(A)}^{}{\vec {E} d \vec {s}}  $ kann für diskrete Schaltelemente in eine Summe zerlegt werden ($ i $ Elemente) aus Spannungsqellenspannungen $ U_{ext} $ (z.B. Batterie, diese werden negativ gezählt) und Spannungsabfällen über bestimmten Bauelementen (z.B. Widerstände, "Verbraucher", diese werden positiv gezählt) $ U_k $. $ U_{\text{ind} } = \dot{\phi } $ sind evtl. vorhandene Induktionsspannungen (z.B. erzeugt durch Spulen). Es folgt 
+\begin{equation*}
+\begin{aligned}
+\sum_{i}^{}{ U_{i} } = - \sum_{l}^{}{U_{\text{ind}, l}} 
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\implies \sum_{k}^{}{U_k} + \sum_{l}^{}{U_{\text{ind}, l}} = \sum_{m}^{}{U_{\text{ext}, m}}    
+\end{aligned}
+\end{equation*}
+
+
+Die vereinfachte Version davon ist 
+\begin{equation*}
+\begin{aligned}
+\sum_{n}^{}{U_n} = 0
+\end{aligned}
+\end{equation*}
+wobei die Spannungsquellenspannungen negativ und die Spannungsabfälle positiv gezählt werden.

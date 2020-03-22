@@ -1,0 +1,144 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+<script type="text/x-mathjax-config">
+//  The document is hidden until MathJax is finished, then
+//   this function runs, making it visible again.
+MathJax.Hub.Queue(function () {
+	document.getElementById("hide_page").style.visibility = "";
+});
+MathJax.Hub.Config({
+	"HTML-CSS": { linebreaks: { automatic: true } },
+	SVG: { linebreaks: { automatic: true } }
+});
+MathJax.Hub.Config({
+	tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+</script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Herleitung der Kanonischen Gleichungen (Hamiltonsche Bewegungsgleichungen)</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>
+
+Um die Hamiltonschon Bewegungsgleichungen herzuleiten benötigen wir das Prinzip der stationären Wirkung (Hamiltonsches Prinzip) und die Definition der Hamiltonfunktion als "Legendre-Transformierte" der Lagrangefunktion.
+<br/>
+Der Wert der Hamiltonfunktion entspricht der Gesamtenergie des Systems, wenn keine rheonomen, also zeitabhängigen Zwangsbedingungen vorliegen.
+
+<br/>
+<br/>
+Hamiltonsches Prinzip: Die Wirkung ist stationär:
+\begin{aligned} 
+\delta S = \delta \int_{t_1}^{t_2}{L(q,\dot{q},t) dt} = 0
+\end{aligned}
+Die Hamiltonfunktion ist abhängig von "kanonischen Variablen", also den generalisiserten Koordinaten $ q_i $ und den jeweils dazugehörigen generalisierten Impulsen $ p_i = \partial L / \partial \dot{q_i} $ . Diese Variablentransformation und die folgende Form der Hamiltonfunktion kann durch Legendre-Transformation der Lagrangefunktion gefunden werden. 
+<br/>
+Die Hamiltonfunktion eines Teilchens des Systems ist definiert als:
+\begin{aligned} 
+H(q_i, p_i, t) = \dot{q_i} p_i - L(q_i,\dot{q_i},t)
+\end{aligned}
+Für das gesamte System folgt dann
+\begin{aligned} 
+\sum_{i}^{}{L(q_i, \dot{q_i}, t)} = \sum_{i}^{}{ \left( \dot{q_i}p_i - H(q_i, p_i, t)   \right)} 
+\end{aligned}
+
+Die Variation der Wirkung des Systems ist 
+\begin{aligned} 
+\delta S = \delta \int_{t_1}^{t_2}{\sum_{i}^{}{L(q_i,\dot{q_i},t)}  dt} 
+\end{aligned}
+
+Wir setzen $ L $ ein:
+\begin{aligned} 
+= \delta \int_{t_1}^{t_2}{\sum_{i}^{}{\left( \dot{q_i}p_i - H(q_i, p_i, t)   \right)}  dt} \\
+= \int_{t_1}^{t_2}{ \delta \sum_{i}^{}{\left( \dot{q_i}p_i - H(q_i, p_i, t)   \right)}  dt} \\
+= \int_{t_1}^{t_2}{\sum_{i}^{}{\left(  \delta(\dot{q_i}p_i) - \delta H(q_i, p_i, t)   \right)}  dt} \\
+\end{aligned}
+
+Da
+\begin{aligned} 
+\delta ( \dot{q_i} p_i) = \frac{\partial ( \dot{q_i} p_i)}{\partial \dot{q_i}} \delta \dot{q_i} + 
+ \frac{\partial ( \dot{q_i} p_i)}{\partial p_i} \delta p_i \\
+= p_i \delta \dot{q_i} + \dot{q_i} \delta p_i
+\end{aligned}
+und 
+\begin{aligned} 
+\delta H(q_i, p_i, t) = \frac{\partial H}{\partial \dot{q_i}} \delta \dot{q_i} 
++ \frac{\partial H}{\partial p_i} \delta p_i
++ \frac{\partial H}{\partial t} \delta t \\
+\end{aligned}
+
+gilt weiter
+\begin{aligned} 
+\delta S = \int_{t_1}^{t_2}{\sum_{i}^{}{\left( p_i \delta \dot{q_i} + \dot{q_i} \delta p_i - \frac{\partial H}{\partial \dot{q_i}} \delta \dot{q_i} - \frac{\partial H}{\partial p_i} \delta p_i
+- \frac{\partial H}{\partial t} \delta t \right)} }  dtx
+\end{aligned}
+
+Den ersten Summanden integrieren wir seperat. Wir erinnern uns, dass die Variation an Anfang und Ende 0 ist.
+
+\begin{aligned}
+\int_{t_1}^{t_2}{\sum_{i}^{}{\left( p_i \delta \dot{q_i}   \right)} dt}
+= \underbrace{\left[  \sum_{i}^{}{p_i \delta q_i}   \right]_{t_1}^{t_2}}_{=0 \text{, da } \delta q_i(t_1) = \delta q_i(t_2) = 0 } - \int_{t_1}^{t_2}{\sum_{i}^{}{\dot{p_i}\delta q_i} dt}   
+\end{aligned}
+
+Also folgt
+\begin{aligned} 
+\delta S = \int_{t_1}^{t_2}{\sum_{i}^{}{\left( -\dot{p_i} \delta q_i + \dot{q_i} \delta p_i - \frac{\partial H}{\partial q_i} \delta q_i - \frac{\partial H}{\partial p_i} \delta p_i - \frac{\partial H}{\partial t} \delta t \right)} dt} \\
+=  \int_{t_1}^{t_2} { \sum_{i}^{}{} \left(  
+\delta q_i \left( -\dot{p_i} - \frac{\partial H}{\partial q_i} \right) + \delta p_i \left( \dot{q_i}- \frac{\partial H}{\partial p_i} \right) - \frac{\partial H}{\partial t} \delta t   \right) dt} \\
+= 0 
+ 
+\end{aligned}
+
+$ \delta q_i $, $ \delta p_i $ und $ \delta t $ sind beliebige infinitesimale Variationen, daher muss, damit der Integrand 0 wird, gelten:
+\begin{aligned}
+\dot{p_i} + \frac{\partial H}{\partial q_i} &= 0 \\
+\dot{q_i} - \frac{\partial H}{\partial p_i} &= 0 \\
+\frac{\partial H}{\partial t} &= 0
+\end{aligned}
+
+Dies sind die kanonischen Gleichungen bzw. die Hamiltonschen Bewegungsgleichungen. Wir haben uns für diese Herleitung lediglich des Hamiltonschen Prinzips (stationäre Wirkung) bedient. Daher sind die Kanonischen Gleichungen, ebenso wie die Euler-Lagrange-Gleichung im Lagrangeformalismus, äquivalent zum Hamiltonschen Prinzip.
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+</div>

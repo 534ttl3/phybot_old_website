@@ -1,0 +1,118 @@
+
+
+
+		<!-- -------------MATHJAX HOUSEKEEPING BEGIN ------------- -->
+		<!-- put your content inside a <div class="mathjaxdiv">...</div>
+			<!-- Copyright (c) 2012-2014 The MathJax Consortium -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="utilsformathjax/mathjaxdiv.css">
+<script type="text/x-mathjax-config">
+//  The document is hidden until MathJax is finished, then
+//   this function runs, making it visible again.
+MathJax.Hub.Queue(function () {
+	document.getElementById("hide_page").style.visibility = "";
+});
+MathJax.Hub.Config({
+	"HTML-CSS": { linebreaks: { automatic: true } },
+	SVG: { linebreaks: { automatic: true } }
+});
+MathJax.Hub.Config({
+	tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+</script>
+		<!--- -------------MATHJAX HOUSEKEEPING End ------------- -->
+
+	<div class="mathjaxdiv">
+
+
+							<h2>Herleitung der Beltrami-Identität aus der Euler-Lagrange-Gleichung</h2>
+ 
+	
+	<div style="display:none">
+	\(
+	\newcommand{>}{\greater}
+	\newcommand{\R}{\Bbb R}
+	\newcommand{\Z}{\Bbb Z}
+	\newcommand{\N}{\Bbb N}
+	\newcommand{\C}{\Bbb C}
+	\newcommand{\vvv}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+        \)
+	</div>
+	<!-- 
+	 | 
+	 | This DIV keeps the page blank until after the math is typeset.
+	 |-->
+	<div id="hide_page" style="visibility:hidden;">
+	<noscript>
+	<div style="color:#CC0000; text-align:center">
+	<b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	requires JavaScript to process the mathematics on this page.<br><br />
+	If your browser supports JavaScript, be sure it is enabled.</b>
+	</div>
+	<hr></hr>
+	</noscript>Die Euler-Lagrange-Gleichung der Variationsrechnung einer Funktion $ F(y,y',x) $ lautet mit $ y' = d y / d x $ 
+\begin{aligned} 
+ \frac{ d }{ dx } \frac{\partial F(y,y',x)}{\partial y'} - \frac{\partial F(y,y',x)}{\partial y} = 0 
+\end{aligned}
+Diese Gleichung hat eine äquivalente Form, wenn für die Funktion $ F $ gilt
+\begin{aligned} 
+ \frac{\partial F}{\partial x} = 0, \quad \implies F \neq F(x) \quad ,
+\end{aligned} 
+diese äquivalente Form ist die sog. Beltrami Identität (integrierte Form der Euler-Lagrange-Gleichung mit Integrationskonstante $ C $ ):
+\begin{aligned} 
+ F - y' \frac{\partial F}{\partial y'} = C = const
+\end{aligned}
+
+Wir können diese Beziehung nachweisen, indem wir die totale  $ x $ - Ableitung bilden und darin die Euler-Lagrange-Gleichung wiederfinden. <br/>
+Sei $ F = F(y,y',x) $ , dann ist das totale Differential von $ F $:   
+\begin{aligned} 
+dF(y,y',x) = \frac{\partial F}{\partial y} dy + \frac{\partial F}{\partial y'} dy' + \frac{\partial F}{\partial x} dx
+\end{aligned}
+Also ist die $ x $ - Ableitung
+\begin{aligned} 
+ \frac{ d }{ dx } \left( F   \right) =  \frac{\partial F}{\partial y} \underbrace{\frac{ dy }{ dx }}_{y'}   + \frac{\partial F}{\partial y'} \underbrace{ \frac{ dy' }{ dx } }_{y''}  + \frac{\partial F}{\partial x} \underbrace{\frac{ dx }{ dx }}_{=1} \\
+= \frac{\partial F}{\partial y} y'   + \frac{\partial F}{\partial y'} y''  + \frac{\partial F}{\partial x}
+
+\end{aligned}
+
+Für die Ableitung der  Beltrami-Identität nach $ x $ gilt
+\begin{aligned} 
+ \frac{ d }{ dx } \left[  F - y' \frac{\partial F}{\partial y'}  \right] =\frac{ d }{ dx } const = 0 
+\end{aligned}
+
+Wir setzen $ dF/dx $ ein, wenden auf den 2. Summanden in der Ableitung die Produktregel an und finden die Euler-Lagrange-Gleichung wieder:
+\begin{aligned} 
+  \frac{ d }{ dx } \left[  F - y' \frac{\partial F}{\partial y'}  \right] = \frac{\partial F}{\partial y} y'   + \frac{\partial F}{\partial y'} y''  + \frac{\partial F}{\partial x} - y'' \frac{\partial F}{\partial y'} - y' \frac{ d }{ dx } \frac{\partial F}{\partial y'} \\
+= \underbrace{\left( \frac{\partial F}{\partial y} - \frac{ d }{ dx } \frac{\partial F}{\partial y'} \right)}_{=0, \text{ nach ELG} }  y' + \frac{\partial F}{\partial x} 
++ \underbrace{\frac{\partial F}{\partial y'} \cdot y'' - y'' \cdot \frac{\partial F}{\partial y'}}_{=0} \\
+=0
+
+\end{aligned}
+
+D.h. wenn
+\begin{aligned} 
+ \frac{\partial F}{\partial x} = 0
+\end{aligned}
+dann ist auch
+\begin{aligned} 
+  \frac{ d }{ dx } \left[  F - y' \frac{\partial F}{\partial y'}  \right] =\frac{ d  }{ dx } const = 0 
+\end{aligned}
+und somit gilt die Beltrami Identität.
+<br/>
+<br/>
+Da wir bei der Herleitung die Euler-Lagrange-Gleichung verwendet haben, können wir in diesem Fall sagen, dass die Beltrami Identität und die Euler-Lagrange Gleichung äquivalent sind.
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h4>tl;dr </h4> Dieser Artikel ist nichts für  Mathematiker mit schwachen Nerven
+
+
+</div>

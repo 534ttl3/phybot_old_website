@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- HTML 4.x -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <!-- HTML5 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="contents/LaTeX/_prism_syntax_highliter/themes/prism.css" rel="stylesheet" />
+</head>
+
+<style>
+body .syntaxhighlighter .line {
+        white-space: pre-wrap !important; /* make code wrap */
+}
+</style>
+
+<body>
+
+<div style="margin:10px;">
+
+<h1> Writing LaTeX Fast </h1>
+
+<p>
+This solution involves using Emacs, so you will have to go through the trouble of learning core functionalities of this piece of software. I find the latex editing environment I have setup for myself to be pretty good. </p>
+<br/>
+
+<u>The environment consists of</u> 
+<br/>
+<br/>
+- <b>OS: Ubuntu 14.04</b>    (reasons: because it's working for me; it's relatively easy to maintain; easy to program on; huge community; mathematica works on it; it's hard to play games on it)
+<br/>
+<br/>
+- <b>LaTeX installation: texlive</b>     (reasons: just run "sudo apt-get install texlive-full" from the terminal and you will have all the packages you may ever need and more, you start compiling latex right away)
+<br/>
+<br/>
+- <b>PDF viewer:     evince</b> (reasons: it's already installed on Ubuntu 14.04; it refreshes the PDF automatically after recompilation, so that's pretty convenient)
+<br/>
+<br/>
+- <b>Emacs</b>    (reasons: it's an incredibly customizable text-based, let's call it an "environment", because you can do so many things with it. It's not just a great text-editor; disadvantages: you will spend some time learing it, or else you will go through desperate times with it)
+<br/>
+<br/>
+- <b>pdfcrop</b>     (crops all the margins off of all PDFs, so you will be able to include those PDFs into your latex document as vector graphics, tables, etc.)
+<br/>
+<br/>
+- <b>inkscape</b>    (create and edit vector graphics, you can even render LaTeX equations with it)
+<br/>
+<br/>
+This configuration works together pretty well. I'm not sure if everything works as good on windows as well. Emacs is cross-platform and open-source, so generally that should be working. All the other pieces of software you will have to find a windows-alternative for.
+<br/>
+<br/>
+First install all that stuff.
+<br/>
+<br/>
+Then:
+<br/>
+<br/>
+TODO:
+<br/>
+<br/>
+1. <b>Learn the basics of Lisp</b> (the programming language you write emacs-programs in). Here is a quick intro: http://www.emacs-doctor.com/learn-emacs-lisp-in-15-minutes.html
+<br/>
+<br/>
+2. <b>Learn the Basics of Emacs</b> (there are many good quick video-tutorials/articles out there)
+<br/>
+<br/>
+3. <b>Install the packages</b> and <b>configure emacs according</b> to my .emacs file
+<br/>
+<br/>
+Everything else should be straightforward.
+<br/>
+<br/>
+<a target="_blank" href="contents/LaTeX/_res/latex-mode.zip">Here</a> are some custom-made yasnippets that suit my needs.
+<br/>
+<br/>
+This is my .emacs file:
+<br/>
+<br/>
+<h4> To scroll vertically, hold SHIFT and scroll with your mousewheel </h4>
+
+
+</div>
+
+<pre class="line-numbers language-lisp" data-line="4-6" style="font-size:120%;">
+<code>
+;;-------------PACKAGES---------------
+
+;; basic initialization, (require) non-ELPA packages, etc.
+    (setq package-enable-at-startup nil)
+    (package-initialize)
+    ;; (require) your ELPA packages, configure them as normal
+
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
+
+;;--------------OVERALL APPEARANCE-------------------------------
+(set-foreground-color "#E0DFDB")
+(set-background-color "#102372")
+
+;;--------------MISC----------------
+
+;; do not show welcome screen
+(setq inhibit-startup-message t)
+
+
+;; do not show the gui-toolbar
+(tool-bar-mode -1)
+
+;;recent files list
+;;(require 'recentf)
+;;(recentf-mode 1)
+;;(setq recentf-max-menu-items 25)
+;;(global-set-key "\C-x\ \C-r" 'recentf-open-files
+
+
+;;--------------AUTOMATIC TEXT MODIFICATION----------------------
+;;HIGHLIGHTING
+(show-paren-mode 1)
+
+;;REALLY IMPORTANT if this is not set, weird indentation things happen in combination with yasnippet snippet expansion and angle brackets <>
+(setq default-tab-width 0)
+
+;; don't add a new line at the end of the file
+(setq-default mode-require-final-newline nil)
+(setq-default require-final-newline nil)
+(setq mode-require-final-newline nil)
+(setq require-final-newline nil)
+
+;; autopair automatically closes opening brackets
+;(add-to-list 'load-path "/path/to/autopair") ;; comment if autopair.el is in standard load path 
+;(require 'autopair)
+;(autopair-global-mode) ;; enable autopair in all buffers
+
+;;---------------TEXT COMPLETION------------------
+
+;; yasnippet - write handy little snippets and jump around
+;;setq-default mode-re
+(require 'yasnippet)
+(yas-global-mode 1)
+(setq yas/triggers-in-field t) ;; Enable nested triggering of snippets
+
+;;---------------KEYBOARD-------------------
+
+;; german keyboard necessities
+(define-key key-translation-map [dead-grave] "`")
+(define-key key-translation-map [dead-acute] "'")
+(define-key key-translation-map [dead-circumflex] "^")
+(define-key key-translation-map [dead-diaeresis] "\"")
+(define-key key-translation-map [dead-tilde] "~")
+
+;; activate built-in cua-mode for C-c, C-v, C-x
+(cua-mode t)
+(setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+(transient-mark-mode 1) ;; No region when it is not highlighted
+(setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+
+;;--------------CLIPBOARD--------------------
+
+;; share clipboard with terminal
+;(xclip-mode 1)
+
+
+
+
+;; Auctex package: AUCTEX has to be installed first 
+(setq TeX-PDF-mode t)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+;;if you often use \include or \input, you should make
+;;AUCTEX aware of the multi-file document structure. You can do this by inserting
+;;(setq-default TeX-master nil)
+;;into your init file. Each time you open a new file, AUCTEX will then ask you for a
+;;master file
+
+;; disable annoying fontification in latex
+(setq font-latex-fontify-script nil)
+
+;; do not force-show compilation output
+(setq TeX-show-compilation nil)
+
+
+;; ------------------ORG MODE STUFF-------------------------
+;; -*- mode: elisp -*-
+
+;; Disable the splash screen (to enable it agin, replace the t with 0)
+;(setq inhibit-splash-screen t)
+
+;; Enable transient mark mode
+;(transient-mark-mode 1)
+
+;;;;org-mode configuration
+;; Enable org-mode
+;(require 'org)
+;; Make org-mode work with files ending in .org
+;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;; The above is the default in recent emacsen
+;(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ ;'(bad-face ((t (:background "Red" :foreground "White" :height 0.7 :width normal)))))
+
+</code>
+</pre>
+
+
+<!-- At the bottom -->
+<script src="contents/LaTeX/_prism_syntax_highliter/themes/prism.js"></script>
+</body>
+</html>
